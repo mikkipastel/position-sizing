@@ -8,7 +8,7 @@
 self.addEventListener("install", e => {
   e.waitUntil(
     // Give the cache a name
-    caches.open("glitch-in-bio-pwa").then(cache => {
+    caches.open("hello-pwa-cache").then(cache => {
       // Cache the homepage and stylesheets - add any assets you want to cache!
       return cache.addAll([
         "/", 
@@ -23,6 +23,17 @@ self.addEventListener('fetch', function(event) {
   event.respondWith(
     fetch(event.request).catch(function() {
       return caches.match(event.request);
+    })
+  );
+});
+
+// Listen for push notifications
+self.addEventListener("push", (event) => {
+  const payload = event.data?.text() ?? "no payload";
+  event.waitUntil(
+    // Make sure you change the name/title for the notification!
+    self.registration.showNotification("Hello PWA", {
+      body: payload,
     })
   );
 });
