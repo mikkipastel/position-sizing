@@ -8,15 +8,20 @@ if ("serviceWorker" in navigator) {
   console.warn("Service Worker not supported in this browser");
 }
 
-const button = document.getElementById("notifications");
-button.addEventListener("click", () => {
-  alert('oh no');
-  Notification.requestPermission().then((result) => {
-    if (result === "granted") {
-      randomNotification();
-    }
+const buttonNotifications = document.getElementById("button-notifications");
+
+if (Notification.permission !== "granted") {
+  buttonNotifications.style.display = 'block';
+  
+  buttonNotifications.addEventListener("click", () => {
+    Notification.requestPermission().then((result) => {
+      if (result === "granted") {
+        randomNotification();
+        buttonNotifications.style.display = 'none';
+      }
+    });
   });
-});
+}
 
 function randomNotification() {
   const randomItem = Math.floor(Math.random() * 987543);
