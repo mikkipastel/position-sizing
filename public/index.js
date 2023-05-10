@@ -10,6 +10,7 @@ if ("serviceWorker" in navigator) {
 
 const button = document.getElementById("notifications");
 button.addEventListener("click", () => {
+  alert('oh no');
   Notification.requestPermission().then((result) => {
     if (result === "granted") {
       randomNotification();
