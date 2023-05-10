@@ -20,8 +20,8 @@ button.addEventListener("click", () => {
 function randomNotification() {
   const randomItem = Math.floor(Math.random() * 987543);
   const notifTitle = `oh hai ${randomItem}`;
-  const notifBody = `Created by ${games[randomItem].author}.`;
-  const notifImg = `data/img/${games[randomItem].slug}.jpg`;
+  const notifBody = `Created by someone`;
+  const notifImg = `https://cdn.glitch.com/560ed5ed-9d00-433a-9ff9-7750d79d13da%2FGlitch_TeamAvatar.png?v=1624643105812`;
   const options = {
     body: notifBody,
     icon: notifImg,
