@@ -16,22 +16,18 @@ if (Notification.permission !== "granted") {
   buttonNotifications.addEventListener("click", () => {
     Notification.requestPermission().then((result) => {
       if (result === "granted") {
-        randomNotification();
+        doNotification('Notifications enabled','Looks like we\'re best friends now!');
         buttonNotifications.style.display = 'none';
       }
     });
   });
 }
 
-function randomNotification() {
-  const randomItem = Math.floor(Math.random() * 987543);
-  const notifTitle = `oh hai ${randomItem}`;
-  const notifBody = `Created by someone`;
+function doNotification(notifTitle,notifBody) {
   const notifImg = `https://cdn.glitch.com/560ed5ed-9d00-433a-9ff9-7750d79d13da%2FGlitch_TeamAvatar.png?v=1624643105812`;
   const options = {
     body: notifBody,
     icon: notifImg,
   };
   new Notification(notifTitle, options);
-  setTimeout(randomNotification, 30000);
 }
