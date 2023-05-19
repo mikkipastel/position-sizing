@@ -10,6 +10,7 @@ TODO:
  - Page design, style cleanup
  - Form labels, accessibility
  - Copy, explainer, and README (be sure to explain permissions in various browsers...)
+ - Check: mobile notifications, app icon loader
 
 
 ## You built this with Glitch!
