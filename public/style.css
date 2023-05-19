@@ -172,103 +172,21 @@ END Page structure and element resets
 ******************************************************************************/
 
 /******************************************************************************
-START Glitch in Bio default theme
+START Hello PWA styles
 
-You can create your own CSS file in public/styles/themes
-Select your chosen CSS by adding the theme name (e.g. glitch) in settings.json
-******************************************************************************/
-
-/* Image specified in settings.json avatarImage property */
-.avatar-container {
-  display: flex;
-  justify-content: center;
-}
-.avatar {
-  max-width: var(--avatar-max-width);
-  max-height: var(--avatar-max-width);
-  margin: 1rem 0 1.5rem;
-  border-radius: 50%;
-}
-
-/* Link list content specified in settings.json links array */
-ul.link-list {
-  margin: 0.5em 0 2.5rem;
-  padding-left: 0px;
-}
-ul.link-list li {
-  font-family: var(--font-family-list);
-  font-weight: 100;
-  list-style: none;
-  clear: both;
-  width: 100%;
-  min-width: 100%;
-  text-align: center;
-  margin: 1rem auto;
-  font-size: clamp(0.7rem, 0.325rem + 1.6667vw, 1.2rem);
-}
-ul.link-list li a {
-  min-height: 5.5em;
-  min-width: 100%;
-  display: flex;
-  align-content: center;
-  justify-content: flex-start;
-  align-items: center;
-}
-ul.link-list li a:link,
-ul.link-list li a:visited {
-  text-align: center;
-  border: 2px solid var(--color-primary);
-  padding: 1.5rem;
-  position: relative;
-}
-ul.link-list li a img {
-  z-index: 1;
-  aspect-ratio: 1 / 1;
-  height: 3em;
-  object-fit: cover;
-  overflow: hidden;
-}
-ul.link-list li a span {
-  z-index: 2;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-/* Social media icons */
-/* Page will display all icons that have a value in settings.json social object */
-.social-icons {
-  justify-content: center;
-}
-.social-icons a:link {
-  border-bottom: none;
-  background: transparent;
-  width: 3rem;
-  height: 3rem;
-  margin: 0 0.5rem 1.5rem;
-}
-.social-profile-icon {
-  width: 1.75rem;
-  margin-bottom: 1rem;
-  display: inline-flex;
-}
-/* Image paths specified in layout/social.html */
-.social-profile-icon path {
-  fill: var(--color-bg-alt);
-}
-.social-profile-icon:hover path,
-.social-profile-icon:focus path {
-  fill: var(--color-text-main);
-}
-
-/* Video aspect ratio helper */
-.video-wrapper__16-9 iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-}
-/******************************************************************************
-END Glitch in Bio default theme
+You can create your own CSS file in public/styles.css
 ******************************************************************************/
 
 #button-notifications, #form-notification {
   display: none;
 }
+
+#form-notification * {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+/******************************************************************************
+END Glitch in Bio default theme
+******************************************************************************/

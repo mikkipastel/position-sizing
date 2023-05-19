@@ -23,6 +23,12 @@ if (Notification.permission !== "granted") {
     });
   });
 } else {
+  formNotification.addEventListener("submit", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    doNotification(document.getElementById("notif-title").value,document.getElementById("notif-body").value);
+  });
+  
   formNotification.style.display = 'block';
 }
 
