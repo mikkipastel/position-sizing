@@ -6,6 +6,7 @@ TODO:
  - How do we add the push server location gracefully?
  - Add badging for push notifications (not for local notifications though)
  - Page design, style cleanup
+ - Form labels, accessibility
  - Copy, explainer, and README
 
 
