@@ -19,6 +19,7 @@ if (Notification.permission !== "granted") {
       if (result === "granted") {
         doNotification('Notifications enabled','Looks like we\'re best friends now!');
         buttonNotifications.style.display = 'none';
+        formNotification.style.display = 'block';
       }
     });
   });
@@ -33,7 +34,7 @@ if (Notification.permission !== "granted") {
 }
 
 function doNotification(notifTitle,notifBody) {
-  const notifImg = `https://cdn.glitch.com/560ed5ed-9d00-433a-9ff9-7750d79d13da%2FGlitch_TeamAvatar.png?v=1624643105812`;
+  const notifImg = `https://cdn.glitch.me/efc5414a-882b-4708-af81-8461abbc1a82%2Ftouch-icon.png?v=1633521972305`;
   const options = {
     body: notifBody,
     icon: notifImg,
