@@ -269,6 +269,6 @@ ul.link-list li a span {
 END Glitch in Bio default theme
 ******************************************************************************/
 
-#button-notifications {
+#button-notifications, #form-notification {
   display: none;
 }

@@ -9,6 +9,7 @@ if ("serviceWorker" in navigator) {
 }
 
 const buttonNotifications = document.getElementById("button-notifications");
+const formNotification = document.getElementById("form-notification");
 
 if (Notification.permission !== "granted") {
   buttonNotifications.style.display = 'block';
@@ -21,6 +22,8 @@ if (Notification.permission !== "granted") {
       }
     });
   });
+} else {
+  formNotification.style.display = 'block';
 }
 
 function doNotification(notifTitle,notifBody) {
