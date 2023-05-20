@@ -11,6 +11,10 @@ if ("serviceWorker" in navigator) {
 const buttonNotifications = document.getElementById("button-notifications");
 const formNotification = document.getElementById("form-notification");
 
+const totalBadgeCount = 0;
+const buttonIncrementBadge = document.getElementById("button-increment-badge");
+const buttonClearBadge = document.getElementById("button-clear-badge");
+
 // set up event handlers
 buttonNotifications.addEventListener("click", () => {
   askNotificationPermission();
@@ -19,6 +23,13 @@ formNotification.addEventListener("submit", (event) => {
   event.preventDefault();
   event.stopPropagation();
   doNotification(document.getElementById("notif-title").value,document.getElementById("notif-body").value);
+});
+
+buttonIncrementBadge.addEventListener("click", () => {
+  askNotificationPermission();
+});
+buttonClearBadge.addEventListener("click", () => {
+  askNotificationPermission();
 });
 
 function testNotificationPromise() {
@@ -65,6 +76,26 @@ function doNotification(notifTitle,notifBody) {
     icon: notifImg,
   };
   new Notification(notifTitle, options);
+}
+
+function setBadge(total) {
+  if (navigator.setAppBadge) {
+    navigator.setAppBadge(total);
+  } else if (navigator.setExperimentalAppBadge) {
+    navigator.setExperimentalAppBadge(total);
+  } else if (window.ExperimentalBadge) {
+    window.ExperimentalBadge.set(total);
+  }
+}
+
+function clearBadge() {
+  if (navigator.clearAppBadge) {
+    navigator.clearAppBadge();
+  } else if (navigator.clearExperimentalAppBadge) {
+    navigator.clearExperimentalAppBadge();
+  } else if (window.ExperimentalBadge) {
+    window.ExperimentalBadge.clear();
+  }
 }
 
 // execute our functions and set up the page
