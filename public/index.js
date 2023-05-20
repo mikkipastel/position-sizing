@@ -8,14 +8,10 @@ if ("serviceWorker" in navigator) {
   console.warn("Service Worker not supported in this browser");
 }
 
+// grab notification elements
 const buttonNotifications = document.getElementById("button-notifications");
 const formNotification = document.getElementById("form-notification");
-
-const totalBadgeCount = 0;
-const buttonIncrementBadge = document.getElementById("button-increment-badge");
-const buttonClearBadge = document.getElementById("button-clear-badge");
-
-// set up event handlers
+// set up event notification handlers
 buttonNotifications.addEventListener("click", () => {
   askNotificationPermission();
 });
@@ -25,11 +21,18 @@ formNotification.addEventListener("submit", (event) => {
   doNotification(document.getElementById("notif-title").value,document.getElementById("notif-body").value);
 });
 
+// grab badging elements and set initial badge value
+var totalBadgeCount = 0;
+const buttonIncrementBadge = document.getElementById("button-increment-badge");
+const buttonClearBadge = document.getElementById("button-clear-badge");
+// set up badging notification handlers
 buttonIncrementBadge.addEventListener("click", () => {
-  askNotificationPermission();
+  totalBadgeCount++;
+  setBadge(totalBadgeCount);
+  console.log(`set badge to ${totalBadgeCount}`)
 });
 buttonClearBadge.addEventListener("click", () => {
-  askNotificationPermission();
+  clearBadge();
 });
 
 function testNotificationPromise() {
