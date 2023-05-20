@@ -11,7 +11,17 @@ if ("serviceWorker" in navigator) {
 const buttonNotifications = document.getElementById("button-notifications");
 const formNotification = document.getElementById("form-notification");
 
-function checkNotificationPromise() {
+// set up event handlers
+buttonNotifications.addEventListener("click", () => {
+  askNotificationPermission();
+});
+formNotification.addEventListener("submit", (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  doNotification(document.getElementById("notif-title").value,document.getElementById("notif-body").value);
+});
+
+function testNotificationPromise() {
   try {
     Notification.requestPermission().then();
   } catch (e) {
@@ -21,49 +31,31 @@ function checkNotificationPromise() {
   return true;
 }
 
-function askNotificationPermission() {
-  // function to actually ask the permissions
-  function handlePermission(permission) {
-    // set the button and subsequent form to shown or hidden, depending on what the user answers
-    if (Notification.permission !== "granted") {
-      buttonNotifications.style.display = 'block';
-      buttonNotifications.addEventListener("click", () => {
-        askNotificationPermission();
-      });
-    } else {
-      formNotification.style.display = 'block';
-    }
-    formNotification.style.display =
-      Notification.permission === "granted" ? "block" : "none";
-    buttonNotifications.style.display = 
-      Notification.permission === "granted" ? "block" : "none";
-  }
-
-  // Let's check if the browser supports notifications
-  if (!("Notification" in window)) {
-    console.log("This browser does not support notifications.");
-  } else if (checkNotificationPromise()) {
-    Notification.requestPermission().then((permission) => {
-      handlePermission(permission);
-    });
+function handlePermission() {
+  // set the button and subsequent form to shown or hidden, depending on what the user answers
+  if (Notification.permission !== "granted") {
+    buttonNotifications.style.display = 'block';
   } else {
-    Notification.requestPermission((permission) => {
-      handlePermission(permission);
-    });
+    buttonNotifications.style.display = 'none';
+    formNotification.style.display = 'block';
   }
 }
 
-if (Notification.permission !== "granted") {
-  buttonNotifications.style.display = 'block';
-  buttonNotifications.addEventListener("click", () => {
-    askNotificationPermission();
-  });
-} else {
-  formNotification.addEventListener("submit", (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    doNotification(document.getElementById("notif-title").value,document.getElementById("notif-body").value);
-  });
+function askNotificationPermission() {
+  // function to actually ask the permissions
+  
+  // Let's check if the browser supports notifications
+  if (!("Notification" in window)) {
+    console.log("This browser does not support notifications.");
+  } else if (testNotificationPromise()) {
+    Notification.requestPermission().then(() => {
+      handlePermission();
+    });
+  } else {
+    Notification.requestPermission(() => {
+      handlePermission();
+    });
+  }
 }
 
 function doNotification(notifTitle,notifBody) {
@@ -74,3 +66,6 @@ function doNotification(notifTitle,notifBody) {
   };
   new Notification(notifTitle, options);
 }
+
+// execute our functions and set up the page
+handlePermission();
