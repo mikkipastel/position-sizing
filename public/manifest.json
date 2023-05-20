@@ -1,6 +1,7 @@
 {
   "name": "Hello PWA",
   "short_name": "Hello PWA",
+  "display": "standalone",
   "description": "A webapp folks can install on their phones",
   "icons": [
     {
