@@ -11,6 +11,12 @@ TODO:
  - Form labels, accessibility
  - Copy, explainer, and README (be sure to explain permissions in various browsers...)
  - Check: mobile notifications, app icon loader
+ 
+README STUFF:
+ - manifest _needs_ "display": "standalone" to work right on iOS!
+ - doesn't need apple specific stuff in the head — manifest is plenty now!
+ - Helpers: iOS orientation change zoom fix, isInstalledPWA boolean
+ - Features: realtime notifications, setting/clearing badges, orientation change detection
 
 
 ## You built this with Glitch!
