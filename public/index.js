@@ -33,6 +33,12 @@ function rotateWithNoScale() {
     }, 90);
   }
 }
+
+/************************************************************************
+
+Set isInstalledPWA if we're in app mode 😎
+
+*************************************************************************/
 // detect installed PWA and set a boolean we can check (this will only match after )
 const isInstalledPWA = window.matchMedia("(display-mode: standalone)").matches;
 
@@ -156,19 +162,25 @@ Feature: Orientation changes
 
 // just an example of what can be done detecting orientation
 // also good for taking video fullscreen, moving nav elements, etc.
+// note: most desktop browsers always say "landscape"
 function showOrientationBlocks() {
-  if (screen.orientation.type == 'portrait' || screen.orientation.type == '') {
+  if (
+    screen.orientation.type == "portrait-primary" ||
+    screen.orientation.type == "portrait-secondary" // this means "upside down" lol
+  ) {
     document.querySelector(".show-for-portrait").style.display = "block";
-    document.querySelector(".show-for-landscape").style.display = "false";
-  } else {
-    document.querySelector(".show-for-portrait").style.display = "false";
+    document.querySelector(".show-for-landscape").style.display = "none";
+  } else if (
+    screen.orientation.type == "landscape-primary" ||
+    screen.orientation.type == "landscape-secondary" // upsie downsies again
+  ) {
+    document.querySelector(".show-for-portrait").style.display = "none";
     document.querySelector(".show-for-landscape").style.display = "block";
   }
 }
 
-// actually detect the orientation
-screen.orientation.addEventListener("change", function(e) {
-  alert('change');
+// actually detect the orientation changes and reapply
+screen.orientation.addEventListener("change", function (e) {
   showOrientationBlocks();
 });
 
