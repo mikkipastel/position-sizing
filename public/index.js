@@ -1,4 +1,11 @@
+/************************************************************************
+
+App setup
+
+*************************************************************************/
+// force https
 if (location.protocol == "http:") location.protocol = "https:";
+// handle the service worker registration
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
     .register("service-worker.js")
@@ -7,55 +14,36 @@ if ("serviceWorker" in navigator) {
 } else {
   console.warn("Service Worker not supported in this browser");
 }
-
-if (/(iPad|iPhone|iPod)/g.test(navigator.userAgent) && window.addEventListener && document.querySelector) {
-      window.addEventListener('orientationchange', rotateWithNoScale, false);
+// fix for iPhone zoom issues after orientation changes
+// see: http://www.menucool.com/McMenu/prevent-page-content-zooming-on-mobile-orientation-change
+if (
+  /(iPad|iPhone|iPod)/g.test(navigator.userAgent) &&
+  window.addEventListener &&
+  document.querySelector
+) {
+  window.addEventListener("orientationchange", rotateWithNoScale, false);
+}
+function rotateWithNoScale() {
+  var viewport = document.querySelector("meta[name=viewport]");
+  if (viewport) {
+    var content = viewport.getAttribute("content");
+    viewport.setAttribute("content", content + ", maximum-scale=1.0");
+    setTimeout(function () {
+      viewport.setAttribute("content", content);
+    }, 90);
   }
-  function rotateWithNoScale() {
-      var viewport = document.querySelector("meta[name=viewport]");
-      if (viewport) {
-          var content = viewport.getAttribute("content");
-          viewport.setAttribute("content", content + ", maximum-scale=1.0");
-          setTimeout(function () { viewport.setAttribute("content", content); }, 90);
-      }
-  }
+}
+// detect installed PWA and set a boolean we can check (this will only match after )
+const isInstalledPWA = window.matchMedia("(display-mode: standalone)").matches;
 
-// detect installed PWA (this will only match after )
-const isInstalledPWA = window.matchMedia('(display-mode: standalone)').matches;
+/************************************************************************
 
+Feature: Notifications
+
+*************************************************************************/
 // grab notification elements
 const buttonNotifications = document.getElementById("button-notifications");
 const formNotification = document.getElementById("form-notification");
-// set up event notification handlers
-buttonNotifications.addEventListener("click", () => {
-  askNotificationPermission();
-});
-formNotification.addEventListener("submit", (event) => {
-  event.preventDefault();
-  event.stopPropagation();
-  doNotification(
-    document.getElementById("notif-title").value,
-    document.getElementById("notif-body").value
-  );
-});
-
-// grab badging elements and set initial badge value
-var totalBadgeCount = 0;
-const buttonIncrementBadge = document.getElementById("button-increment-badge");
-const buttonClearBadge = document.getElementById("button-clear-badge");
-// set up badging notification handlers
-if (isInstalledPWA) {
-  buttonIncrementBadge.style.display = "block";
-  buttonClearBadge.style.display = "block";
-}
-buttonIncrementBadge.addEventListener("click", () => {
-  totalBadgeCount++;
-  setBadge(totalBadgeCount);
-  console.log(`set badge to ${totalBadgeCount}`);
-});
-buttonClearBadge.addEventListener("click", () => {
-  clearBadge();
-});
 
 function testNotificationPromise() {
   try {
@@ -77,8 +65,6 @@ function handlePermission() {
 }
 
 function askNotificationPermission() {
-  // function to actually ask the permissions
-
   // Let's check if the browser supports notifications
   if (!("Notification" in window)) {
     console.log("This browser does not support notifications.");
@@ -102,6 +88,46 @@ function doNotification(notifTitle, notifBody) {
   new Notification(notifTitle, options);
 }
 
+// set up event notification handlers
+buttonNotifications.addEventListener("click", () => {
+  askNotificationPermission();
+});
+formNotification.addEventListener("submit", (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  doNotification(
+    document.getElementById("notif-title").value,
+    document.getElementById("notif-body").value
+  );
+});
+
+// execute our notification functions and set up the page elements
+handlePermission();
+
+/************************************************************************
+
+Feature: Badging
+
+*************************************************************************/
+// grab badging elements and set initial badge value
+var totalBadgeCount = 0;
+const buttonIncrementBadge = document.getElementById("button-increment-badge");
+const buttonClearBadge = document.getElementById("button-clear-badge");
+// set up badging notification handlers
+if (isInstalledPWA) {
+  buttonIncrementBadge.style.display = "block";
+  buttonClearBadge.style.display = "block";
+}
+buttonIncrementBadge.addEventListener("click", () => {
+  totalBadgeCount++;
+  setBadge(totalBadgeCount);
+  console.log(`set badge to ${totalBadgeCount}`);
+});
+buttonClearBadge.addEventListener("click", () => {
+  totalBadgeCount = 0;
+  clearBadge();
+});
+
 function setBadge(total) {
   if (navigator.setAppBadge) {
     navigator.setAppBadge(total);
@@ -121,6 +147,3 @@ function clearBadge() {
     window.ExperimentalBadge.clear();
   }
 }
-
-// execute our functions and set up the page
-handlePermission();
