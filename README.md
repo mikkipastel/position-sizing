@@ -3,14 +3,14 @@
 TODO:
  - Can service worker AND index.js can read from manifest.json for notification title and app image?
  - Can is there a consistent but randomizable way to set cache name? manifest file hash? (to avoid collisions between remixes if that step is missed)
- - Read more about the mac/OS level notifications — can we customize the URL bit that shows under the title? Do they even show up by default? (looks like maybe no on mac?)
  - Check installed app locations on MacOS, Windows, iOS, Android so we can set proper expectations
  - How do we add the push server location gracefully?
  - Page design, style cleanup
  - Form labels, accessibility
  - Copy, explainer, and README (be sure to explain permissions in various browsers...)
- - Check: mobile notifications, app icon loader
  - Why isn't the notifications permission check not waiting to fire on mobile safari?
+ - Ditch the realtime notifications form and only do push notifications ([https://felixgerschau.com/web-push-notifications-tutorial/](best resource))
+ - Add install nudge for uninstalled apps via isInstalledPWA
  
 README STUFF:
  - manifest _needs_ "display": "standalone" to work right on iOS!
