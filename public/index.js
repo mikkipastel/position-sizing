@@ -157,11 +157,24 @@ Feature: Orientation changes
 // older ios safari gets a little funny with the screen object, so this
 // media query trick by Johnny Simpson is a little more universal
 // see: https://dev.to/smpnjn/how-to-detect-device-orientation-with-javascript-29e5
-let orientation = window.matchMedia("(orientation: portrait)");
-orientation.addEventListener("change", function(e) {
-    if(e.matches) {
-        // portrait
-    } else {
-        // landscape
-    }
-})
+let portrait = window.matchMedia("(orientation: portrait)");
+
+// just an example of what can be done detecting orientation
+function showOrientationBlocks() {
+  if (portrait) {
+    document.querySelector(".show-for-portrait").style.display = "block";
+    document.querySelector(".show-for-landscape").style.display = "false";
+  } else {
+    document.querySelector(".show-for-portrait").style.display = "false";
+    document.querySelector(".show-for-landscape").style.display = "block";
+  }
+}
+
+// actually detect the orientation
+portrait.addEventListener("change", function (e) {
+  if (e.matches) {
+    document.querySelector(".show-for-portrait");
+  } else {
+    // landscape
+  }
+});
