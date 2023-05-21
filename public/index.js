@@ -8,11 +8,8 @@ if ("serviceWorker" in navigator) {
   console.warn("Service Worker not supported in this browser");
 }
 
-// detect installed PWA
-const isInstalledPWA = () =>
-  window.matchMedia("(display-mode: standalone)").matches ||
-  window.navigator.standalone ||
-  document.referrer.includes("android-app://");
+// detect installed PWA (this will only match after )
+const isInstalledPWA = window.matchMedia('(display-mode: standalone)').matches;
 
 // grab notification elements
 const buttonNotifications = document.getElementById("button-notifications");
