@@ -24,9 +24,9 @@ if (
   window.addEventListener("orientationchange", rotateWithNoScale, false);
 }
 function rotateWithNoScale() {
-  var viewport = document.querySelector("meta[name=viewport]");
+  let viewport = document.querySelector("meta[name=viewport]");
   if (viewport) {
-    var content = viewport.getAttribute("content");
+    let content = viewport.getAttribute("content");
     viewport.setAttribute("content", content + ", maximum-scale=1.0");
     setTimeout(function () {
       viewport.setAttribute("content", content);
@@ -110,7 +110,7 @@ Feature: Badging
 
 *************************************************************************/
 // grab badging elements and set initial badge value
-var totalBadgeCount = 0;
+let totalBadgeCount = 0;
 const buttonIncrementBadge = document.getElementById("button-increment-badge");
 const buttonClearBadge = document.getElementById("button-clear-badge");
 // set up badging notification handlers
@@ -147,3 +147,21 @@ function clearBadge() {
     window.ExperimentalBadge.clear();
   }
 }
+
+/************************************************************************
+
+Feature: Orientation changes
+
+*************************************************************************/
+
+// older ios safari gets a little funny with the screen object, so this
+// media query trick by Johnny Simpson is a little more universal
+// see: https://dev.to/smpnjn/how-to-detect-device-orientation-with-javascript-29e5
+let orientation = window.matchMedia("(orientation: portrait)");
+orientation.addEventListener("change", function(e) {
+    if(e.matches) {
+        // portrait
+    } else {
+        // landscape
+    }
+})
