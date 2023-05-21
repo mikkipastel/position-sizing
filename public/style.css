@@ -177,7 +177,7 @@ START Hello PWA styles
 You can create your own CSS file in public/styles.css
 ******************************************************************************/
 
-#button-notifications, #form-notification {
+#button-notifications, #form-notification, #button-increment-badge, #button-clear-badge {
   display: none;
 }
 

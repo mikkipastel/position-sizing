@@ -8,6 +8,12 @@ if ("serviceWorker" in navigator) {
   console.warn("Service Worker not supported in this browser");
 }
 
+// detect installed PWA
+const isInstalledPWA = () =>
+  window.matchMedia("(display-mode: standalone)").matches ||
+  window.navigator.standalone ||
+  document.referrer.includes("android-app://");
+
 // grab notification elements
 const buttonNotifications = document.getElementById("button-notifications");
 const formNotification = document.getElementById("form-notification");
@@ -18,7 +24,10 @@ buttonNotifications.addEventListener("click", () => {
 formNotification.addEventListener("submit", (event) => {
   event.preventDefault();
   event.stopPropagation();
-  doNotification(document.getElementById("notif-title").value,document.getElementById("notif-body").value);
+  doNotification(
+    document.getElementById("notif-title").value,
+    document.getElementById("notif-body").value
+  );
 });
 
 // grab badging elements and set initial badge value
@@ -26,10 +35,14 @@ var totalBadgeCount = 0;
 const buttonIncrementBadge = document.getElementById("button-increment-badge");
 const buttonClearBadge = document.getElementById("button-clear-badge");
 // set up badging notification handlers
+if (isInstalledPWA) {
+  buttonIncrementBadge.style.display = "block";
+  buttonClearBadge.style.display = "block";
+}
 buttonIncrementBadge.addEventListener("click", () => {
   totalBadgeCount++;
   setBadge(totalBadgeCount);
-  console.log(`set badge to ${totalBadgeCount}`)
+  console.log(`set badge to ${totalBadgeCount}`);
 });
 buttonClearBadge.addEventListener("click", () => {
   clearBadge();
@@ -41,23 +54,22 @@ function testNotificationPromise() {
   } catch (e) {
     return false;
   }
-
   return true;
 }
 
 function handlePermission() {
   // set the button and subsequent form to shown or hidden, depending on what the user answers
   if (Notification.permission !== "granted") {
-    buttonNotifications.style.display = 'block';
+    buttonNotifications.style.display = "block";
   } else {
-    buttonNotifications.style.display = 'none';
-    formNotification.style.display = 'block';
+    buttonNotifications.style.display = "none";
+    formNotification.style.display = "block";
   }
 }
 
 function askNotificationPermission() {
   // function to actually ask the permissions
-  
+
   // Let's check if the browser supports notifications
   if (!("Notification" in window)) {
     console.log("This browser does not support notifications.");
@@ -72,7 +84,7 @@ function askNotificationPermission() {
   }
 }
 
-function doNotification(notifTitle,notifBody) {
+function doNotification(notifTitle, notifBody) {
   const notifImg = `https://cdn.glitch.me/efc5414a-882b-4708-af81-8461abbc1a82%2Ftouch-icon.png?v=1633521972305`;
   const options = {
     body: notifBody,
