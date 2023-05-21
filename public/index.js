@@ -8,6 +8,18 @@ if ("serviceWorker" in navigator) {
   console.warn("Service Worker not supported in this browser");
 }
 
+if (/(iPad|iPhone|iPod)/g.test(navigator.userAgent) && window.addEventListener && document.querySelector) {
+      window.addEventListener('orientationchange', rotateWithNoScale, false);
+  }
+  function rotateWithNoScale() {
+      var viewport = document.querySelector("meta[name=viewport]");
+      if (viewport) {
+          var content = viewport.getAttribute("content");
+          viewport.setAttribute("content", content + ", maximum-scale=1.0");
+          setTimeout(function () { viewport.setAttribute("content", content); }, 90);
+      }
+  }
+
 // detect installed PWA (this will only match after )
 const isInstalledPWA = window.matchMedia('(display-mode: standalone)').matches;
 
