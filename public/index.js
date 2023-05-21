@@ -157,7 +157,7 @@ Feature: Orientation changes
 // just an example of what can be done detecting orientation
 // also good for taking video fullscreen, moving nav elements, etc.
 function showOrientationBlocks() {
-  if (window.matchMedia("(orientation: portrait)")) {
+  if (screen.orientation.type == 'portrait' || screen.orientation.type == '') {
     document.querySelector(".show-for-portrait").style.display = "block";
     document.querySelector(".show-for-landscape").style.display = "false";
   } else {
@@ -168,6 +168,7 @@ function showOrientationBlocks() {
 
 // actually detect the orientation
 screen.orientation.addEventListener("change", function(e) {
+  alert('change');
   showOrientationBlocks();
 });
 
