@@ -6,11 +6,11 @@ TODO:
  - Read more about the mac/OS level notifications — can we customize the URL bit that shows under the title? Do they even show up by default? (looks like maybe no on mac?)
  - Check installed app locations on MacOS, Windows, iOS, Android so we can set proper expectations
  - How do we add the push server location gracefully?
- - Add badging for push notifications (not for local notifications though)
  - Page design, style cleanup
  - Form labels, accessibility
  - Copy, explainer, and README (be sure to explain permissions in various browsers...)
  - Check: mobile notifications, app icon loader
+ - Why isn't the notifications permission check not waiting to fire on mobile safari?
  
 README STUFF:
  - manifest _needs_ "display": "standalone" to work right on iOS!
