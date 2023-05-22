@@ -28,12 +28,11 @@ self.addEventListener('fetch', function(event) {
 });
 
 // Listen for push notifications
-self.addEventListener("push", (event) => {
-  const payload = event.data?.text() ?? "no payload";
-  event.waitUntil(
-    // Make sure you change the name/title for the notification!
-    self.registration.showNotification("Hello PWA", {
-      body: payload,
-    })
-  );
+self.addEventListener('push', (e) => {
+  const data = e.data.json();
+  self.registration.showNotification(data.title, {
+    body: data.body,
+    icon: data.icon,
+  });
 });
+
