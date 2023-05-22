@@ -10,7 +10,7 @@ TODO:
 - Form labels, accessibility
 - Copy, explainer, and README (be sure to explain permissions in various browsers...)
 - Why isn't the notifications permission check not waiting to fire on mobile safari?
-- Ditch the realtime notifications form and only do push notifications -> [best resource](https://felixgerschau.com/web-push-notifications-tutorial/)
+- Ditch the realtime notifications form and only do push notifications -> [best resource](https://felixgerschau.com/web-push-notifications-tutorial/), [also this running on Glitch](https://glitch.com/edit/#!/glortch-pusha-tee)
 - Add install nudge for uninstalled apps via isInstalledPWA
 
 README STUFF:
