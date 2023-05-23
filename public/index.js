@@ -4,7 +4,8 @@ App setup
 
 *************************************************************************/
 // force https
-if (location.protocol == "http:") location.protocol = "https:";
+if (location.protocol === "http:") location.protocol = "https:";
+
 // handle the service worker registration
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
