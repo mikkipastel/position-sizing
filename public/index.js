@@ -123,30 +123,6 @@ handlePermission();
 const VAPID_PUBLIC_KEY =
   "BPCTaiYiLYR-IZv9G7Pm4pis7XhpsQjr58u8J-8RZfiIakPOXRBMZ6eRnQ0dKaKL5Q_oawnmwYchigwchEP4XKc";
 
-async function registerServiceWorker() {
-  await navigator.serviceWorker.register("./service-worker.js");
-}
-
-async function unregisterServiceWorker() {
-  const registration = await navigator.serviceWorker.getRegistration();
-  await registration.unregister();
-}
-
-// Convert a base64 string to Uint8Array.
-// Must do this so the server can understand the VAPID_PUBLIC_KEY.
-function urlB64ToUint8Array(base64String) {
-  const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
-  const base64 = (base64String + padding)
-    .replace(/\-/g, "+")
-    .replace(/_/g, "/");
-  const rawData = window.atob(base64);
-  const outputArray = new Uint8Array(rawData.length);
-  for (let i = 0; i < rawData.length; ++i) {
-    outputArray[i] = rawData.charCodeAt(i);
-  }
-  return outputArray;
-}
-
 async function subscribeToPush() {
   const registration = await navigator.serviceWorker.getRegistration();
   const subscription = await registration.pushManager.subscribe({
@@ -165,24 +141,7 @@ async function unsubscribeFromPush() {
   await subscription.unsubscribe();
 }
 
-async function notifyMe() {
-  const registration = await navigator.serviceWorker.getRegistration();
-  const subscription = await registration.pushManager.getSubscription();
-  postToServer("/notify-me", { endpoint: subscription.endpoint });
-}
-
-async function notifyAll() {
-  const response = await fetch("/notify-all", {
-    method: "POST",
-  });
-  if (response.status === 409) {
-    document.getElementById("notification-status-message").textContent =
-      "There are no subscribed endpoints to send messages to, yet.";
-  }
-}
-
-/* Utility functions. */
-
+// Utility functions for notifications
 async function postToServer(url, data) {
   let response = await fetch(url, {
     method: "POST",
@@ -191,6 +150,21 @@ async function postToServer(url, data) {
     },
     body: JSON.stringify(data),
   });
+}
+
+// Convert a base64 string to Uint8Array.
+// Must do this so the server can understand the VAPID_PUBLIC_KEY.
+function urlB64ToUint8Array(base64String) {
+  const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
+  const base64 = (base64String + padding)
+    .replace(/\-/g, "+")
+    .replace(/_/g, "/");
+  const rawData = window.atob(base64);
+  const outputArray = new Uint8Array(rawData.length);
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i);
+  }
+  return outputArray;
 }
 
 /************************************************************************
