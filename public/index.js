@@ -118,44 +118,83 @@ handlePermission();
 //
 //
 //
-const publicVapidKey =
-  "BMrfFtMtL9IWl9vchDbbbYzJlbQwplyZ_fbv8Pei8gPNna_Dr1O-Ng7U7fy0LLqz5RKIxEytTIzyk6TLrcKbN30";
+/* Push notification logic. */
 
-// Copied from the web-push documentation
-const urlBase64ToUint8Array = (base64String) => {
+const VAPID_PUBLIC_KEY = document.querySelector(
+  `input[name="webpush publickey"]`
+).value;
+
+async function registerServiceWorker() {
+  await navigator.serviceWorker.register("./service-worker.js");
+  updateUI();
+}
+
+async function unregisterServiceWorker() {
+  const registration = await navigator.serviceWorker.getRegistration();
+  await registration.unregister();
+  updateUI();
+}
+
+// Convert a base64 string to Uint8Array.
+// Must do this so the server can understand the VAPID_PUBLIC_KEY.
+function urlB64ToUint8Array(base64String) {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
   const base64 = (base64String + padding)
     .replace(/\-/g, "+")
     .replace(/_/g, "/");
-
   const rawData = window.atob(base64);
   const outputArray = new Uint8Array(rawData.length);
-
   for (let i = 0; i < rawData.length; ++i) {
     outputArray[i] = rawData.charCodeAt(i);
   }
   return outputArray;
-};
+}
 
-window.subscribe = async () => {
-  if (!("serviceWorker" in navigator)) return;
-
-  const registration = await navigator.serviceWorker.ready;
-
-  // Subscribe to push notifications
+async function subscribeToPush() {
+  const registration = await navigator.serviceWorker.getRegistration();
   const subscription = await registration.pushManager.subscribe({
     userVisibleOnly: true,
-    applicationServerKey: urlBase64ToUint8Array(publicVapidKey),
+    applicationServerKey: urlB64ToUint8Array(VAPID_PUBLIC_KEY),
   });
-  
-  await fetch('/subscription', {
-    method: 'POST',
-    body: JSON.stringify(subscription),
+  postToServer("/add-subscription", subscription);
+}
+
+async function unsubscribeFromPush() {
+  const registration = await navigator.serviceWorker.getRegistration();
+  const subscription = await registration.pushManager.getSubscription();
+  postToServer("/remove-subscription", {
+    endpoint: subscription.endpoint,
+  });
+  await subscription.unsubscribe();
+}
+
+async function notifyMe() {
+  const registration = await navigator.serviceWorker.getRegistration();
+  const subscription = await registration.pushManager.getSubscription();
+  postToServer("/notify-me", { endpoint: subscription.endpoint });
+}
+
+async function notifyAll() {
+  const response = await fetch("/notify-all", {
+    method: "POST",
+  });
+  if (response.status === 409) {
+    document.getElementById("notification-status-message").textContent =
+      "There are no subscribed endpoints to send messages to, yet.";
+  }
+}
+
+/* Utility functions. */
+
+async function postToServer(url, data) {
+  let response = await fetch(url, {
+    method: "POST",
     headers: {
-      'content-type': 'application/json',
+      "Content-Type": "application/json",
     },
+    body: JSON.stringify(data),
   });
-};
+}
 
 /************************************************************************
 
