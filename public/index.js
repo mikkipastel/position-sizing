@@ -120,19 +120,16 @@ handlePermission();
 //
 /* Push notification logic. */
 
-const VAPID_PUBLIC_KEY = document.querySelector(
-  `input[name="webpush publickey"]`
-).value;
+const VAPID_PUBLIC_KEY =
+  "BPCTaiYiLYR-IZv9G7Pm4pis7XhpsQjr58u8J-8RZfiIakPOXRBMZ6eRnQ0dKaKL5Q_oawnmwYchigwchEP4XKc";
 
 async function registerServiceWorker() {
   await navigator.serviceWorker.register("./service-worker.js");
-  updateUI();
 }
 
 async function unregisterServiceWorker() {
   const registration = await navigator.serviceWorker.getRegistration();
   await registration.unregister();
-  updateUI();
 }
 
 // Convert a base64 string to Uint8Array.
