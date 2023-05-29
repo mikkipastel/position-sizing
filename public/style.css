@@ -167,6 +167,18 @@ START Hello PWA styles
 You can create your own CSS file in public/styles.css
 ******************************************************************************/
 
+textarea,
+input,
+button {
+  margin-top: 8px;
+  display: block;
+  height: 40px;
+  width: 100%;
+}
+textarea {
+  height: 125px;
+}
+
 #button-notifications,
 #form-notification,
 #button-increment-badge,
