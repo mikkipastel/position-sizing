@@ -152,17 +152,17 @@ Feature: Badging
 
 *************************************************************************/
 // grab badging elements and set initial badge value
-let totalBadgeCount = 0;
-const buttonIncrementBadge = document.getElementById("button-increment-badge");
+const badgeCount = document.getElementById("badge-count");
+const buttonIncrementBadge = document.getElementById("button-set-badge");
 const badgingFeatures = document.getElementById("badging-area");
 // set up badging notification handlers
 if (isInstalledPWA) {
   badgingFeatures.style.display = "block";
 }
-buttonIncrementBadge.addEventListener("click", () => {
-  totalBadgeCount++;
-  setBadge(totalBadgeCount);
-  console.log(`set badge to ${totalBadgeCount}`);
+buttonIncrementBadge.addEventListener("click", (e) => {
+  e.stopPropagation()
+  setBadge(badgeCount.value);
+  console.log(`set badge to ${badgeCount.value}`);
 });
 
 function setBadge(total) {
@@ -176,7 +176,6 @@ function setBadge(total) {
 }
 
 function clearBadge() {
-  totalBadgeCount = 0;
   if (navigator.clearAppBadge) {
     navigator.clearAppBadge();
   } else if (navigator.clearExperimentalAppBadge) {
