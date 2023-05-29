@@ -54,18 +54,16 @@ const pushServerBaseURL = "https://glortch-pusha-tee.glitch.me";
 const VAPID_PUBLIC_KEY =
   "BPCTaiYiLYR-IZv9G7Pm4pis7XhpsQjr58u8J-8RZfiIakPOXRBMZ6eRnQ0dKaKL5Q_oawnmwYchigwchEP4XKc";
 
+// set up event notification handlers
+buttonNotifications.addEventListener("click", () => {
+  askNotificationPermission();
+});
+
+// execute our notification functions and set up the page elements
+handlePermission();
 
 // grab notification elements
 const buttonNotifications = document.getElementById("button-notifications");
-
-function testNotificationPromise() {
-  try {
-    Notification.requestPermission().then();
-  } catch (e) {
-    return false;
-  }
-  return true;
-}
 
 function handlePermission() {
   // set the button and subsequent form to shown or hidden, depending on what the user answers
@@ -80,33 +78,16 @@ function askNotificationPermission() {
   // Let's check if the browser supports notifications
   if (!("Notification" in window)) {
     console.log("This browser does not support notifications.");
-  } else if (testNotificationPromise()) {
-    Notification.requestPermission().then(() => {
-      handlePermission();
-    });
   } else {
-    Notification.requestPermission(() => {
-      handlePermission();
+    Notification.requestPermission().then((permission) => {
+      // If the user accepts, let's create a notification
+      if (permission === "granted") {
+        handlePermission();
+        let notification = new Notification("Hi there!");
+      }
     });
   }
 }
-
-// set up event notification handlers
-buttonNotifications.addEventListener("click", () => {
-  askNotificationPermission();
-});
-
-// execute our notification functions and set up the page elements
-handlePermission();
-
-//
-//
-//
-// new new new WIP
-//
-//
-//
-/* Push notification logic. */
 
 async function subscribeToPush() {
   const registration = await navigator.serviceWorker.getRegistration();
@@ -114,13 +95,13 @@ async function subscribeToPush() {
     userVisibleOnly: true,
     applicationServerKey: urlB64ToUint8Array(VAPID_PUBLIC_KEY),
   });
-  postToServer(`${totalBadgeCount}/add-subscription", subscription);
+  postToServer(`${pushServerBaseURL}/add-subscription`, subscription);
 }
 
 async function unsubscribeFromPush() {
   const registration = await navigator.serviceWorker.getRegistration();
   const subscription = await registration.pushManager.getSubscription();
-  postToServer("/remove-subscription", {
+  postToServer(`${pushServerBaseURL}/remove-subscription`, {
     endpoint: subscription.endpoint,
   });
   await subscription.unsubscribe();
