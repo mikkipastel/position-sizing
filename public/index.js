@@ -83,6 +83,7 @@ function askNotificationPermission() {
       // If the user accepts, let's create a notification
       if (permission === "granted") {
         handlePermission();
+        subscribeToPush();
         let notification = new Notification("Notifications enabled", {
           body: "We're best friends now! (We'll say hi when there's news.)",
           icon: "https://cdn.glitch.com/560ed5ed-9d00-433a-9ff9-7750d79d13da%2FGlitch_TeamAvatar.png?v=1624643105812",
