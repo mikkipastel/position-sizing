@@ -54,6 +54,9 @@ const pushServerBaseURL = "https://glortch-pusha-tee.glitch.me";
 const VAPID_PUBLIC_KEY =
   "BPCTaiYiLYR-IZv9G7Pm4pis7XhpsQjr58u8J-8RZfiIakPOXRBMZ6eRnQ0dKaKL5Q_oawnmwYchigwchEP4XKc";
 
+// grab notification elements
+const buttonNotifications = document.getElementById("button-notifications");
+
 // set up event notification handlers
 buttonNotifications.addEventListener("click", () => {
   askNotificationPermission();
@@ -61,9 +64,6 @@ buttonNotifications.addEventListener("click", () => {
 
 // execute our notification functions and set up the page elements
 handlePermission();
-
-// grab notification elements
-const buttonNotifications = document.getElementById("button-notifications");
 
 function handlePermission() {
   // set the button and subsequent form to shown or hidden, depending on what the user answers
