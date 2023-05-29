@@ -48,9 +48,15 @@ const isInstalledPWA = window.matchMedia("(display-mode: standalone)").matches;
 Feature: Notifications
 
 *************************************************************************/
+
+const enablePushNotifications = true;
+const pushServerBaseURL = "https://glortch-pusha-tee.glitch.me";
+const VAPID_PUBLIC_KEY =
+  "BPCTaiYiLYR-IZv9G7Pm4pis7XhpsQjr58u8J-8RZfiIakPOXRBMZ6eRnQ0dKaKL5Q_oawnmwYchigwchEP4XKc";
+
+
 // grab notification elements
 const buttonNotifications = document.getElementById("button-notifications");
-const formNotification = document.getElementById("form-notification");
 
 function testNotificationPromise() {
   try {
@@ -67,7 +73,6 @@ function handlePermission() {
     buttonNotifications.style.display = "block";
   } else {
     buttonNotifications.style.display = "none";
-    formNotification.style.display = "block";
   }
 }
 
@@ -86,26 +91,9 @@ function askNotificationPermission() {
   }
 }
 
-function doNotification(notifTitle, notifBody) {
-  const notifImg = `https://cdn.glitch.me/efc5414a-882b-4708-af81-8461abbc1a82%2Ftouch-icon.png?v=1633521972305`;
-  const options = {
-    body: notifBody,
-    icon: notifImg,
-  };
-  new Notification(notifTitle, options);
-}
-
 // set up event notification handlers
 buttonNotifications.addEventListener("click", () => {
   askNotificationPermission();
-});
-formNotification.addEventListener("submit", (event) => {
-  event.preventDefault();
-  event.stopPropagation();
-  doNotification(
-    document.getElementById("notif-title").value,
-    document.getElementById("notif-body").value
-  );
 });
 
 // execute our notification functions and set up the page elements
@@ -120,16 +108,13 @@ handlePermission();
 //
 /* Push notification logic. */
 
-const VAPID_PUBLIC_KEY =
-  "BPCTaiYiLYR-IZv9G7Pm4pis7XhpsQjr58u8J-8RZfiIakPOXRBMZ6eRnQ0dKaKL5Q_oawnmwYchigwchEP4XKc";
-
 async function subscribeToPush() {
   const registration = await navigator.serviceWorker.getRegistration();
   const subscription = await registration.pushManager.subscribe({
     userVisibleOnly: true,
     applicationServerKey: urlB64ToUint8Array(VAPID_PUBLIC_KEY),
   });
-  postToServer("/add-subscription", subscription);
+  postToServer(`${totalBadgeCount}/add-subscription", subscription);
 }
 
 async function unsubscribeFromPush() {
