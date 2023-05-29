@@ -34,5 +34,17 @@ self.addEventListener('push', (e) => {
     body: data.body,
     icon: data.icon,
   });
+  
+  // Extract the unread count from the push message data.
+  const unreadCount = data.unreadCount;
+
+  // Set or clear the badge.
+  if (navigator.setAppBadge) {
+    if (unreadCount && unreadCount > 0) {
+      navigator.setAppBadge(unreadCount);
+    } else {
+      navigator.clearAppBadge();
+    }
+  }
 });
 

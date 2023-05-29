@@ -29,6 +29,7 @@ START Page structure and element resets
   --color-text-main: #000000; /* List text ann social icons on hover */
   --color-primary: #ffffff; /* Headers and borders */
   --color-forms: #FF00BC; /* Form borders and highlights */
+  --color-buttons: #FFBFEE; /* Button colors */
 }
 
 /* Basic page style resets */
@@ -176,6 +177,12 @@ button {
   height: 40px;
   width: 100%;
   border: 2px solid var(--color-forms);
+}
+button {
+  background: var(--color-buttons);
+  color: #000000;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 textarea {
   height: 125px;
