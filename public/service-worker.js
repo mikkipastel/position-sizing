@@ -5,39 +5,43 @@
  */
 
 // Specify what we want added to the cache for offline use
-self.addEventListener("install", e => {
+self.addEventListener("install", (e) => {
   e.waitUntil(
     // Give the cache a name
-    caches.open("glitch-hello-pwa-cache").then(cache => {
+    caches.open("glitch-hello-pwa-cache").then((cache) => {
       // Cache the homepage and stylesheets - add any assets you want to cache!
-      return cache.addAll([
-        "/", 
-        "/style.css"
-      ]);
+      return cache.addAll(["/", "/style.css"]);
     })
   );
 });
 
 // Network falling back to cache approach
-self.addEventListener('fetch', function(event) {
+self.addEventListener("fetch", function (event) {
   event.respondWith(
-    fetch(event.request).catch(function() {
+    fetch(event.request).catch(function () {
       return caches.match(event.request);
     })
   );
 });
 
 // Listen for push notifications
-self.addEventListener('push', (e) => {
+self.addEventListener("push", (e) => {
   const data = e.data.json();
-  self.registration.showNotification(data.title, {
-    body: data.body,
-    icon: data.icon,
-  });
-  
-  if (navigator.setAppBadge) {
-    // sets an empty badge because we're not tracking notification count
-    navigator.setAppBadge(1);
-  }
-});
+  let promises = [];
 
+  if ("setAppBadge" in self.navigator) {
+    const promise = self.navigator.setAppBadge(1);
+    promises.push(promise);
+  }
+
+  // Promise to show a notification
+  promises.push(
+    self.registration.showNotification(data.title, {
+      body: data.body,
+      icon: data.icon,
+    })
+  );
+
+  // Finally...
+  event.waitUntil(Promise.all(promises));
+});
