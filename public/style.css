@@ -190,8 +190,7 @@ textarea {
 
 #button-notifications,
 #form-notification,
-#button-increment-badge,
-#button-clear-badge,
+#badging-area,
 .show-for-portrait,
 .show-for-landscape {
   display: none;

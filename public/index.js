@@ -65,6 +65,15 @@ buttonNotifications.addEventListener("click", () => {
 // execute our notification functions and set up the page elements
 handlePermission();
 
+// touchstart event clears any active badges
+window.addEventListener(
+  "touchstart",
+  (e) => {
+    clearBadge();
+  },
+  false
+);
+
 function handlePermission() {
   // set the button and subsequent form to shown or hidden, depending on what the user answers
   if (Notification.permission !== "granted") {
@@ -145,20 +154,15 @@ Feature: Badging
 // grab badging elements and set initial badge value
 let totalBadgeCount = 0;
 const buttonIncrementBadge = document.getElementById("button-increment-badge");
-const buttonClearBadge = document.getElementById("button-clear-badge");
+const badgingFeatures = document.getElementById("badging-area");
 // set up badging notification handlers
 if (isInstalledPWA) {
-  buttonIncrementBadge.style.display = "block";
-  buttonClearBadge.style.display = "block";
+  badgingFeatures.style.display = "block";
 }
 buttonIncrementBadge.addEventListener("click", () => {
   totalBadgeCount++;
   setBadge(totalBadgeCount);
   console.log(`set badge to ${totalBadgeCount}`);
-});
-buttonClearBadge.addEventListener("click", () => {
-  totalBadgeCount = 0;
-  clearBadge();
 });
 
 function setBadge(total) {
@@ -172,6 +176,7 @@ function setBadge(total) {
 }
 
 function clearBadge() {
+  totalBadgeCount = 0;
   if (navigator.clearAppBadge) {
     navigator.clearAppBadge();
   } else if (navigator.clearExperimentalAppBadge) {

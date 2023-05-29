@@ -2,44 +2,32 @@
 <html lang="en">
   <head>
     <title>{{ settings.metaTitle }}</title>
-    
+
     {{> head }}
-    
+
     <script src="index.js" async defer></script>
   </head>
   <body>
     <main>
       <div class="wrapper">
         <div class="content">
-          
-          <h1>
-            Hello Installable PWA!
-          </h1>
+          <h1>Hello Installable PWA!</h1>
 
+          <button id="button-notifications">enable notifications</button>
 
-          <button id="button-notifications">
-            enable notifications
-          </button>
-          
-          <button id="button-increment-badge">
-            increment app badge
-          </button>
-          
-          <button id="button-clear-badge">
-            clear app badge
-          </button>
-          
-          <div class="show-for-portrait">
-            orientation: portrait
+          <div id="badging-area">
+            <button id="button-increment-badge">increment app badge</button>
+
+            (Touching anything but the "increment" button will clear
+            notifications.)
           </div>
-          
-          <div class="show-for-landscape">
-            orientation: landscape
-          </div>
-          
+
+          <div class="show-for-portrait">orientation: portrait</div>
+
+          <div class="show-for-landscape">orientation: landscape</div>
         </div>
       </div>
-      
+
       <!--- FOOTER: You can safely remove the Glitch footer (but tell your friends!) ✂ --->
       {{> glitch-footer }}
     </main>
