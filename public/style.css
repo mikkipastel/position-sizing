@@ -24,10 +24,11 @@ START Page structure and element resets
   /* Colors you'll see cascade through the elements */
 
   /* To set your own use custom-theme.css with `custom-theme` in settings.json `theme` property */
-  --color-bg: #ff9028; /* Used for the page body background */
+  --color-bg: #99DAFF; /* Used for the page body background */
   --color-bg-alt: #ffffff; /* Used for social icons on hover */
   --color-text-main: #000000; /* List text ann social icons on hover */
   --color-primary: #ffffff; /* Headers and borders */
+  --color-forms: #FF00BC; /* Form borders and highlights */
 }
 
 /* Basic page style resets */
@@ -174,6 +175,7 @@ button {
   display: block;
   height: 40px;
   width: 100%;
+  border: 2px solid var(--color-forms);
 }
 textarea {
   height: 125px;
