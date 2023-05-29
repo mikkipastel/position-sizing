@@ -69,7 +69,6 @@ function handlePermission() {
   // set the button and subsequent form to shown or hidden, depending on what the user answers
   if (Notification.permission !== "granted") {
     buttonNotifications.style.display = "block";
-    clearBadge();
   } else {
     buttonNotifications.style.display = "none";
   }
