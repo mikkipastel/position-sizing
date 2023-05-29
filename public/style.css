@@ -28,16 +28,6 @@ START Page structure and element resets
   --color-bg-alt: #ffffff; /* Used for social icons on hover */
   --color-text-main: #000000; /* List text ann social icons on hover */
   --color-primary: #ffffff; /* Headers and borders */
-
-  /* These are some Glitch colors you are welcome to use! */
-  --glitch-blue: #2800ff;
-  --glitch-blue-light: #5a78ff;
-  --glitch-pink: #ff7698;
-  --glitch-pink-light: #fec1ee;
-  --glitch-green: #05f293;
-  --glitch-green-light: #9be7d8;
-  --glitch-yellow: #ffff60;
-  --glitch-purple: #9480ff;
 }
 
 /* Basic page style resets */
@@ -184,12 +174,6 @@ You can create your own CSS file in public/styles.css
 .show-for-portrait,
 .show-for-landscape {
   display: none;
-}
-
-#form-notification * {
-  display: block;
-  width: 100%;
-  margin-bottom: 12px;
 }
 
 /******************************************************************************
