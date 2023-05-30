@@ -30,6 +30,7 @@ self.addEventListener("push", (e) => {
   let promises = [];
 
   if ("setAppBadge" in self.navigator) {
+    // this is hard-coded to "1" because getNotifications is tricky?
     const promise = self.navigator.setAppBadge(1);
     promises.push(promise);
   }
