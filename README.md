@@ -5,7 +5,7 @@ TODO:
 - Page design, style cleanup
 - Add install nudge for uninstalled apps via isInstalledPWA (show icons...)
 - Explore the getNotifications stuff to give accurate badge counts
-- Can we put the public key in a `.env` instead (to stop inclusion in remixes)
+- Can we put the public key in a `.env` instead (to stop inclusion in remixes) ...does that work in GSS?
 
 README STUFF:
 
