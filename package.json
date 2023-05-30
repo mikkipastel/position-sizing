@@ -1,7 +1,7 @@
 {
-  "name": "glitch-in-bio",
-  "version": "0.0.3",
-  "description": "Your very own link-in-bio app.",
+  "name": "hello-installable",
+  "version": "0.0.1",
+  "description": "A simple starting point for your next installable PWA",
   "main": "index.html",
   "scripts": {
     "start": "vite",
@@ -14,7 +14,6 @@
     "@auto-it/first-time-contributor": "^10.32.2",
     "@auto-it/git-tag": "^10.32.3",
     "@auto-it/released": "^10.32.2",
-    "@glitchdotcom/vite-plugin-handlebars": "^1.6.2",
     "auto": "^10.32.2",
     "vite": "^4.0.0"
   },
@@ -26,12 +25,12 @@
     "node": "14.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/glitch-in-bio"
+    "url": "https://glitch.com/edit/#!/glitch-hello-installable"
   },
   "glitch": {
     "projectType": "generated_static"
   },
-  "author": "Keith Kurson <keith@glitch.com>",
+  "author": "Jesse von Doom <jvondoom@fastly.com>",
   "auto": {
     "plugins": [
       "all-contributors",
