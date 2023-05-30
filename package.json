@@ -1,6 +1,6 @@
 {
   "name": "hello-installable",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A simple starting point for your next installable PWA",
   "main": "index.html",
   "scripts": {
