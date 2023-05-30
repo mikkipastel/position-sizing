@@ -3,8 +3,7 @@
 TODO:
 
 - Page design, style cleanup
-- Add mobile/desktop detection via JS lib
-- Add install nudge for uninstalled apps via isInstalledPWA
+- Add install nudge for uninstalled apps via isInstalledPWA (show icons...)
 - Explore the getNotifications stuff to give accurate badge counts
 
 README STUFF:
@@ -18,7 +17,7 @@ README STUFF:
 
 #### Credits
 
-Made by your friends at Glitch. But wow it took a lot of research!
+Made by your friends at Glitch. But wow it took a lot of research! If you want to learn more your best starting point is probably [this guide on MDN](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps).
 
 &nbsp;
 
