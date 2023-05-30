@@ -52,7 +52,7 @@ Feature: Notifications
 const enablePushNotifications = true;
 const pushServerBaseURL = "https://glortch-pusha-tee.glitch.me";
 const VAPID_PUBLIC_KEY =
-  "BPCTaiYiLYR-IZv9G7Pm4pis7XhpsQjr58u8J-8RZfiIakPOXRBMZ6eRnQ0dKaKL5Q_oawnmwYchigwchEP4XKc";
+  "BKF_-c-PRt_hn-yGLXjYnlLJBEE2C3bvNRu5Tf1DQqbn_jCxbSYeoMKRHKLyCto-BUl_MaWrgE9-T08au99A-Xg";
 
 // grab notification elements
 const buttonNotifications = document.getElementById("button-notifications");
