@@ -3,7 +3,20 @@
   <head>
     <title>{{ settings.metaTitle }}</title>
 
-    {{> head }}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- OpenGraph/Social sharing -->
+    <meta name="description" content="{{ settings.metaDescription }}" />
+    <meta name="og:description" content="{{ settings.metaDescription }}" />
+    <meta property="og:image" content="{{ settings.avatarImage }}" />
+    <meta property="og:title" content="{{ settings.metaTitle}}" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+
+    <!-- PWA setup - update public/sw.js if you add your own assets like a new .css file -->
+    <link rel="manifest" href="manifest.json" />
 
     <script src="index.js" async defer></script>
   </head>
@@ -19,8 +32,7 @@
             <input type="text" id="badge-count" value="1" />
             <button id="button-set-badge">set app badge</button>
 
-            Touching anywhere outside the "set" button clears
-            badges.
+            Touching anywhere outside the "set" button clears badges.
           </div>
 
           <div class="show-for-portrait">orientation: portrait</div>
@@ -30,7 +42,24 @@
       </div>
 
       <!--- FOOTER: You can safely remove the Glitch footer (but tell your friends!) ✂ --->
-      {{> glitch-footer }}
+      <footer class="footer">
+        <div class="tagline">
+          <b>Hello PWA</b><br />
+          I'm at the web. I'm at the app.<br />
+          I'm at the combination web and app.
+        </div>
+        <a
+          class="btn--remix"
+          target="_top"
+          href="https://glitch.com/edit/#!/remix/glitch-hello-installable"
+        >
+          <img
+            src="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FLogo_Color.svg?v=1618199565140"
+            alt=""
+          />
+          Build your own PWA
+        </a>
+      </footer>
     </main>
   </body>
 </html>

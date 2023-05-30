@@ -8,7 +8,6 @@ export default defineConfig(async ({ command, mode }) => {
   return {
     plugins: [
       handlebars({
-        partialDirectory: resolve(__dirname, "layout"),
         settingsFile: 'settings.json',
         helpers: {
           hostasclass: value => new URL(value).hostname.replace(/\./g, "_")
