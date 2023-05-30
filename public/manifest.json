@@ -1,8 +1,8 @@
 {
   "name": "Hello PWA",
   "short_name": "Hello PWA",
-  "display": "standalone",
   "description": "A webapp folks can install on their phones",
+  "display": "standalone",
   "icons": [
     {
       "sizes": "800x800",
@@ -17,7 +17,6 @@
       "purpose": "maskable"
     }
   ],
-  "display": "standalone",
   "background_color": "#99DAFF",
   "theme_color": "#99DAFF",
   "start_url": "/"
