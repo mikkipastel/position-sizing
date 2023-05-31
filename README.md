@@ -23,7 +23,7 @@ you can even pair this app with a little push notification server we built calle
 
 There's a lot of other little features stuck into this app to get you started working with PWAs like:
 
-- Events for orientation changes (portrait/landscape (plus CSS examples!) 
+- Events for orientation changes (portrait/landscape, plus CSS examples!) 
 - Fixes for a wacky iOS zooming bug on orientation change
 - An example of setting and clearing app icon badges
 - A global `isInstalledPWA` boolean so you know when your app is installed
