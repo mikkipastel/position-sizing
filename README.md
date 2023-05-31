@@ -12,16 +12,23 @@ for an app store. It's mostly like any other web ap, with a few exceptions:
   [more from Mozilla](https://developer.mozilla.org/en-US/docs/Web/Manifest).
 - **service-worker.js:** PWAs also have service workers. They don't have to be named "service-worker" but
   why not be literal? Service workers are a bit of JavaScript that can run in the background of your app
+  and handle things like caching content and receiving push notifications. They're cool! Mozilla's got 
+  [docs for you](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers)
+  about service workers too.
   
+PWAs installed to phones can even get access to a lot of the magic mobile device APIs like native push
+notifications. This starter has all the hooks to receive notifications and if you want to play with that
+you can even pair this app with a little push notification server we built called 
+[Pushie](https://glitch.com/edit/#!/glitch-pushie).
 
-README STUFF:
+There's a lot of other little features stuck into this app to get you started working with PWAs like:
 
-- Copy, explainer, and README (be sure to explain permissions in various browsers...)
-- manifest _needs_ "display": "standalone" to work right on iOS!
-- doesn't need apple specific stuff in the head — manifest is plenty now!
-- Helpers: iOS orientation change zoom fix, isInstalledPWA boolean
-- Features: push notifications, setting/clearing badges, orientation change detection
-- Document https://glitch.com/edit/#!/glortch-pusha-tee
+- Events for orientation changes (portrait/landscape (plus CSS examples!) 
+- Fixes for a wacky iOS zooming bug on orientation change
+- An example of setting and clearing app icon badges
+- A global `isInstalledPWA` boolean so you know when your app is installed
+- A tooltip you can display to people telling them how to install the app
+- Push notification support (with badging and badge clearing on interaction)
 
 
 #### TODO:
@@ -36,7 +43,9 @@ README STUFF:
 
 Made by your friends at Glitch. But wow it took a lot of research! If you want to learn more about PWAs 
 your best starting point is probably 
-[this guide on MDN](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps).
+[this guide on MDN](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps). There's also this
+great (technical) [guide to working with push notifications](https://felixgerschau.com/web-push-notifications-tutorial/) 
+from Felix Gerschau.
 
 &nbsp;
 
