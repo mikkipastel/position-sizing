@@ -8,9 +8,9 @@
 self.addEventListener("install", (e) => {
   e.waitUntil(
     // Give the cache a name
-    caches.open("glitch-hello-pwa-cache").then((cache) => {
+    caches.open("glitch-hello-installable-cache").then((cache) => {
       // Cache the homepage and stylesheets - add any assets you want to cache!
-      return cache.addAll(["/", "/style.css"]);
+      return cache.addAll(["/", "/style.css", "/index.js"]);
     })
   );
 });
