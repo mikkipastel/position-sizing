@@ -15,25 +15,6 @@ if ("serviceWorker" in navigator) {
 } else {
   console.warn("Service Worker not supported in this browser");
 }
-// fix for iPhone zoom issues after orientation changes
-// see: http://www.menucool.com/McMenu/prevent-page-content-zooming-on-mobile-orientation-change
-if (
-  /(iPad|iPhone|iPod)/g.test(navigator.userAgent) &&
-  window.addEventListener &&
-  document.querySelector
-) {
-  window.addEventListener("orientationchange", rotateWithNoScale, false);
-}
-function rotateWithNoScale() {
-  let viewport = document.querySelector("meta[name=viewport]");
-  if (viewport) {
-    let content = viewport.getAttribute("content");
-    viewport.setAttribute("content", content + ", maximum-scale=1.0");
-    setTimeout(function () {
-      viewport.setAttribute("content", content);
-    }, 90);
-  }
-}
 
 /************************************************************************
 
@@ -190,6 +171,26 @@ function clearBadge() {
 Feature: Orientation changes
 
 *************************************************************************/
+
+// fix for iPhone zoom issues after orientation changes
+// see: http://www.menucool.com/McMenu/prevent-page-content-zooming-on-mobile-orientation-change
+if (
+  /(iPad|iPhone|iPod)/g.test(navigator.userAgent) &&
+  window.addEventListener &&
+  document.querySelector
+) {
+  window.addEventListener("orientationchange", rotateWithNoScale, false);
+}
+function rotateWithNoScale() {
+  let viewport = document.querySelector("meta[name=viewport]");
+  if (viewport) {
+    let content = viewport.getAttribute("content");
+    viewport.setAttribute("content", content + ", maximum-scale=1.0");
+    setTimeout(function () {
+      viewport.setAttribute("content", content);
+    }, 90);
+  }
+}
 
 // just an example of what can be done detecting orientation
 // also good for taking video fullscreen, moving nav elements, etc.
