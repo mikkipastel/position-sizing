@@ -29,6 +29,7 @@ const isInstalledPWA = window.matchMedia("(display-mode: standalone)").matches;
 Feature: Notifications
 
 *************************************************************************/
+
 const enablePushNotifications = true;
 const pushServerBaseURL = "https://glortch-pusha-tee.glitch.me";
 const VAPID_PUBLIC_KEY =
@@ -56,11 +57,10 @@ window.addEventListener(
 
 function handlePermission() {
   // set the button and subsequent form to shown or hidden, depending on what the user answers
-  if ("Notification" in window) {
-    // Mobile Safari gets cranky without this test
-    if (Notification.permission !== "granted") {
-      buttonNotifications.style.display = "block";
-    }
+  if (Notification.permission !== "granted") {
+    buttonNotifications.style.display = "block";
+  } else {
+    buttonNotifications.style.display = "none";
   }
 }
 
@@ -141,7 +141,7 @@ if (isInstalledPWA) {
   badgingFeatures.style.display = "block";
 }
 buttonIncrementBadge.addEventListener("click", (e) => {
-  e.stopPropagation();
+  e.stopPropagation()
   setBadge(badgeCount.value);
   console.log(`set badge to ${badgeCount.value}`);
 });
@@ -172,9 +172,6 @@ Feature: Orientation changes
 
 *************************************************************************/
 
-// set up isPortrait
-const isPortrait = window.matchMedia("(orientation: portrait)");
-
 // fix for iPhone zoom issues after orientation changes
 // see: http://www.menucool.com/McMenu/prevent-page-content-zooming-on-mobile-orientation-change
 if (
@@ -198,33 +195,26 @@ function rotateWithNoScale() {
 // just an example of what can be done detecting orientation
 // also good for taking video fullscreen, moving nav elements, etc.
 // note: most desktop browsers always say "landscape"
-function showOrientationBlocks(portrait) {
-  if (portrait) {
-    document.querySelectorAll(".show-for-portrait").forEach((el) => {
-      el.style.display = "block";
-    });
-    document.querySelectorAll(".show-for-landscape").forEach((el) => {
-      el.style.display = "none";
-    });
-  } else {
-    document.querySelectorAll(".show-for-portrait").forEach((el) => {
-      el.style.display = "none";
-    });
-    document.querySelectorAll(".show-for-landscape").forEach((el) => {
-      el.style.display = "block";
-    });
+function showOrientationBlocks() {
+  if (
+    screen.orientation.type == "portrait-primary" ||
+    screen.orientation.type == "portrait-secondary" // this means "upside down" lol
+  ) {
+    document.querySelector(".show-for-portrait").style.display = "block";
+    document.querySelector(".show-for-landscape").style.display = "none";
+  } else if (
+    screen.orientation.type == "landscape-primary" ||
+    screen.orientation.type == "landscape-secondary" // upsie downsies again
+  ) {
+    document.querySelector(".show-for-portrait").style.display = "none";
+    document.querySelector(".show-for-landscape").style.display = "block";
   }
 }
 
 // actually detect the orientation changes and reapply
-isPortrait.addEventListener("change", (e) => {
-  // Check if orientation is portrait
-  if (e.matches) {
-    showOrientationBlocks(true);
-  } else {
-    showOrientationBlocks(false);
-  }
+screen.orientation.addEventListener("change", function (e) {
+  showOrientationBlocks();
 });
 
 // show/hide orientation classes
-showOrientationBlocks(isPortrait);
+showOrientationBlocks();
