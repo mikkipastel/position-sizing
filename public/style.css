@@ -180,6 +180,10 @@ button {
   width: 100%;
   border: 2px solid var(--color-forms);
 }
+input:focus {
+  outline: none;
+  border: 2px solid var(--color-forms-focus);
+}
 button {
   background: var(--color-buttons);
   color: #000000;
@@ -193,11 +197,6 @@ button:focus {
 }
 button:hover {
   background: var(--color-forms);
-  color: #FFFFFF;
-  cursor: pointer;
-}
-button:active {
-  background: var(--color-forms-focus);
   color: #FFFFFF;
   cursor: pointer;
 }
@@ -218,6 +217,7 @@ textarea {
 .show-for-portrait,
 .show-for-landscape,
 .install-nudge {
+  margin-bottom: 12px;
   display: none;
 }
 

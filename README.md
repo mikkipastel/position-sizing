@@ -30,11 +30,13 @@ There's a lot of other little features stuck into this app to get you started wo
 - A tooltip you can display to people telling them how to install the app
 - Push notification support (with badging and badge clearing on interaction)
 
+#### Getting started
+...document whatever needs to happen to set up notifications — `.env` or `index.js` depending...
 
 #### TODO:
 
 - Page design, style cleanup
-- Add install nudge for uninstalled apps via isInstalledPWA (show icons...)
+- Use localstorage to make the install nudge dismissable
 - Explore the getNotifications stuff to give accurate badge counts
 - Can we put the public key in a `.env` instead (to stop inclusion in remixes) ...does that work in GSS?
 
