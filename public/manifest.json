@@ -1,5 +1,5 @@
 {
-  "name": "Hello PWA",
+  "name": "Hello Installable",
   "short_name": "Hello PWA",
   "description": "A webapp folks can install on their phones",
   "display": "standalone",

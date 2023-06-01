@@ -172,6 +172,9 @@ Feature: Orientation changes
 
 *************************************************************************/
 
+// set up isPortrait
+const isPortrait = window.matchMedia('(orientation: portrait)');
+
 // fix for iPhone zoom issues after orientation changes
 // see: http://www.menucool.com/McMenu/prevent-page-content-zooming-on-mobile-orientation-change
 if (
@@ -195,11 +198,8 @@ function rotateWithNoScale() {
 // just an example of what can be done detecting orientation
 // also good for taking video fullscreen, moving nav elements, etc.
 // note: most desktop browsers always say "landscape"
-function showOrientationBlocks() {
-  if (
-    screen.orientation.type == "portrait-primary" ||
-    screen.orientation.type == "portrait-secondary" // this means "upside down" lol
-  ) {
+function showOrientationBlocks(portrait) {
+  if (portrait) {
     document.querySelector(".show-for-portrait").style.display = "block";
     document.querySelector(".show-for-landscape").style.display = "none";
   } else if (
@@ -212,9 +212,17 @@ function showOrientationBlocks() {
 }
 
 // actually detect the orientation changes and reapply
+isPortrait.addEventListener('change', (e) => {
+  // Check if orientation is portrait
+  if (e.matches) {
+    console.log('Device orientation is Portrait');
+  } else {
+    console.log('Device orientation is Landscape');
+  }
+});
 screen.orientation.addEventListener("change", function (e) {
   showOrientationBlocks();
 });
 
 // show/hide orientation classes
-showOrientationBlocks();
+showOrientationBlocks(isPortrait);
