@@ -205,6 +205,13 @@ textarea {
   height: 125px;
 }
 
+.install-nudge {
+  padding: 16px;
+  text-align: left;
+  background-color: #ffff99;
+  margin-bottom: 12px;
+}
+
 #button-notifications,
 #form-notification,
 #badging-area,

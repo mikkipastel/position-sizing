@@ -29,10 +29,26 @@ const isAndroid = /android/i.test(navigator.userAgent);
 
 /************************************************************************
 
+Feature: Install reminder
+
+*************************************************************************/
+// figure out if we should show the install nudges
+if (!isInstalledPWA) {
+  if (isIOS) {
+    document.querySelector(".install-nudge.ios").style.display = "block";
+  } else if (isAndroid) {
+    document.querySelector(".install-nudge.android").style.display = "block";
+  } else {
+    document.querySelector(".install-nudge.generic").style.display = "block";
+  }
+}
+
+/************************************************************************
+
 Feature: Notifications
 
 *************************************************************************/
-
+// CHANGE THESE
 const enablePushNotifications = true;
 const pushServerBaseURL = "https://glortch-pushie.glitch.me";
 const VAPID_PUBLIC_KEY =
@@ -61,6 +77,7 @@ window.addEventListener(
 function handlePermission() {
   // set the button and subsequent form to shown or hidden, depending on what the user answers
   if ("Notification" in window) {
+    // Mobile Safari errors out without checking for the Notification obj first
     if (Notification.permission !== "granted") {
       buttonNotifications.style.display = "block";
     } else {
