@@ -94,8 +94,9 @@ body {
   box-sizing: border-box;
   border-radius: 4px;
   text-decoration: none;
-  color: #000;
+  color: #000000;
   white-space: nowrap;
+  margin-top: 6px;
   margin-left: auto;
   margin-right: 1rem;
 }
