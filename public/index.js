@@ -196,6 +196,7 @@ Feature: Orientation changes
 *************************************************************************/
 
 // just an example of what can be done detecting orientation
+// sets up helper classes `.show-for-portrait` and `.show-for-landscape`
 // also good for taking video fullscreen, moving nav elements, etc.
 // note: most desktop browsers always say "landscape"
 function showOrientationBlocks() {
@@ -203,14 +204,22 @@ function showOrientationBlocks() {
     screen.orientation.type == "portrait-primary" ||
     screen.orientation.type == "portrait-secondary" // this means "upside down" lol
   ) {
-    document.querySelector(".show-for-portrait").style.display = "block";
-    document.querySelector(".show-for-landscape").style.display = "none";
+    document.querySelectorAll(".show-for-portrait").forEach((el) => {
+      el.style.display = "block";
+    });
+    document.querySelectorAll(".show-for-landscape").forEach((el) => {
+      el.style.display = "none";
+    });
   } else if (
     screen.orientation.type == "landscape-primary" ||
     screen.orientation.type == "landscape-secondary" // upsie downsies again
   ) {
-    document.querySelector(".show-for-portrait").style.display = "none";
-    document.querySelector(".show-for-landscape").style.display = "block";
+    document.querySelectorAll(".show-for-portrait").forEach((el) => {
+      el.style.display = "none";
+    });
+    document.querySelectorAll(".show-for-landscape").forEach((el) => {
+      el.style.display = "block";
+    });
   }
 }
 
