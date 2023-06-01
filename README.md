@@ -19,7 +19,7 @@ for an app store. It's mostly like any other web ap, with a few exceptions:
 PWAs installed to phones can even get access to a lot of the magic mobile device APIs like native push
 notifications. This starter has all the hooks to receive notifications and if you want to play with that
 you can even pair this app with a little push notification server we built called
-[Pushie](https://glitch.com/edit/#!/glitch-pushie).
+[Push Sender](https://glitch.com/edit/#!/glitch-push-sender).
 
 There's a lot of other little features stuck into this app to get you started working with PWAs like:
 
