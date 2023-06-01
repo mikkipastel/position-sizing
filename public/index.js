@@ -63,6 +63,9 @@ function handlePermission() {
   if ("Notification" in window) {
     if (Notification.permission !== "granted") {
       buttonNotifications.style.display = "block";
+    } else {
+      // this looks extra but it clears the button after accepting permission on iOS
+      buttonNotifications.style.display = "none";
     }
   }
 }
