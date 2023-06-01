@@ -209,7 +209,8 @@ textarea {
 #form-notification,
 #badging-area,
 .show-for-portrait,
-.show-for-landscape {
+.show-for-landscape,
+.install-nudge {
   display: none;
 }
 
