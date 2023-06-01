@@ -34,7 +34,7 @@ Feature: Notifications
 *************************************************************************/
 
 const enablePushNotifications = true;
-const pushServerBaseURL = "https://glortch-pusha-tee.glitch.me";
+const pushServerBaseURL = "https://glortch-pushie.glitch.me";
 const VAPID_PUBLIC_KEY =
   "BKF_-c-PRt_hn-yGLXjYnlLJBEE2C3bvNRu5Tf1DQqbn_jCxbSYeoMKRHKLyCto-BUl_MaWrgE9-T08au99A-Xg";
 

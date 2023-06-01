@@ -29,6 +29,7 @@ START Page structure and element resets
   --color-text-main: #000000; /* List text ann social icons on hover */
   --color-primary: #ffffff; /* Headers and borders */
   --color-forms: #FF00BC; /* Form borders and highlights */
+  --color-forms-focus: #ff9028; /* Form borders and highlights */
   --color-buttons: #FFBFEE; /* Button colors */
 }
 
@@ -184,6 +185,21 @@ button {
   color: #000000;
   text-transform: uppercase;
   font-weight: bold;
+}
+button:focus {
+  outline: none;
+  color: #FFFFFF;
+  border: 2px solid var(--color-forms-focus);
+}
+button:hover {
+  background: var(--color-forms);
+  color: #FFFFFF;
+  cursor: pointer;
+}
+button:active {
+  background: var(--color-forms-focus);
+  color: #FFFFFF;
+  cursor: pointer;
 }
 textarea {
   height: 125px;
