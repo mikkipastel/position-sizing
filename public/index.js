@@ -18,11 +18,14 @@ if ("serviceWorker" in navigator) {
 
 /************************************************************************
 
-Set isInstalledPWA if we're in app mode 😎
+Set a few booleans we can check
 
 *************************************************************************/
 // Set isInstalledPWA if we're in app mode 😎
 const isInstalledPWA = window.matchMedia("(display-mode: standalone)").matches;
+// Check the user agent for iOS & Android (only for minor fixes — don't rely on user agent!)
+const isIOS = /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
+const isAndroid = /android/i.test(navigator.userAgent);
 
 /************************************************************************
 
@@ -141,7 +144,7 @@ if (isInstalledPWA) {
   badgingFeatures.style.display = "block";
 }
 buttonIncrementBadge.addEventListener("click", (e) => {
-  e.stopPropagation()
+  e.stopPropagation();
   setBadge(badgeCount.value);
   console.log(`set badge to ${badgeCount.value}`);
 });
@@ -172,26 +175,6 @@ Feature: Orientation changes
 
 *************************************************************************/
 
-// fix for iPhone zoom issues after orientation changes
-// see: http://www.menucool.com/McMenu/prevent-page-content-zooming-on-mobile-orientation-change
-if (
-  /(iPad|iPhone|iPod)/g.test(navigator.userAgent) &&
-  window.addEventListener &&
-  document.querySelector
-) {
-  window.addEventListener("orientationchange", rotateWithNoScale, false);
-}
-function rotateWithNoScale() {
-  let viewport = document.querySelector("meta[name=viewport]");
-  if (viewport) {
-    let content = viewport.getAttribute("content");
-    viewport.setAttribute("content", content + ", maximum-scale=1.0");
-    setTimeout(function () {
-      viewport.setAttribute("content", content);
-    }, 90);
-  }
-}
-
 // just an example of what can be done detecting orientation
 // also good for taking video fullscreen, moving nav elements, etc.
 // note: most desktop browsers always say "landscape"
@@ -211,8 +194,24 @@ function showOrientationBlocks() {
   }
 }
 
+// fix for iPhone zoom issues after orientation changes
+// see: http://www.menucool.com/McMenu/prevent-page-content-zooming-on-mobile-orientation-change
+function rotateWithNoScale() {
+  let viewport = document.querySelector("meta[name=viewport]");
+  if (viewport) {
+    let content = viewport.getAttribute("content");
+    viewport.setAttribute("content", content + ", maximum-scale=1.0");
+    setTimeout(function () {
+      viewport.setAttribute("content", content);
+    }, 100);
+  }
+}
+
 // actually detect the orientation changes and reapply
 screen.orientation.addEventListener("change", function (e) {
+  if (isIOS) {
+    rotateWithNoScale();
+  }
   showOrientationBlocks();
 });
 
