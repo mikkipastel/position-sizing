@@ -21,7 +21,7 @@ if ("serviceWorker" in navigator) {
 Set isInstalledPWA if we're in app mode 😎
 
 *************************************************************************/
-// detect installed PWA and set a boolean we can check (this will only match after )
+// Set isInstalledPWA if we're in app mode 😎
 const isInstalledPWA = window.matchMedia("(display-mode: standalone)").matches;
 
 /************************************************************************
@@ -57,10 +57,10 @@ window.addEventListener(
 
 function handlePermission() {
   // set the button and subsequent form to shown or hidden, depending on what the user answers
-  if (Notification.permission !== "granted") {
-    buttonNotifications.style.display = "block";
-  } else {
-    buttonNotifications.style.display = "none";
+  if ("Notification" in window) {
+    if (Notification.permission !== "granted") {
+      buttonNotifications.style.display = "block";
+    }
   }
 }
 
