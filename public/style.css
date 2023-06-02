@@ -118,7 +118,7 @@ body {
 p {
   margin: 0 0 1rem 0;
   line-height: 1.5 !important;
-  font-size: clamp(1rem, 0.25rem + 3.3333vw, 2rem);
+  font-size: clamp(1rem, 0.25rem + 3.3333vw, 1.5rem);
 }
 h1,
 h2,
@@ -204,6 +204,11 @@ button:hover {
 }
 textarea {
   height: 125px;
+}
+
+h1, p {
+  display: block;
+  text-align: left;
 }
 
 .install-nudge {

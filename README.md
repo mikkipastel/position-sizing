@@ -37,10 +37,11 @@ There's a lot of other little features stuck into this app to get you started wo
 
 #### TODO:
 
-- Page design, style cleanup
+- Make the orientation thing cool: portrait == two phones high-fiving, landscape == one wide phone offering a hug / arms outstretched
 - Use localstorage to make the install nudge dismissable
 - Explore the getNotifications stuff to give accurate badge counts
 - Put the public key in a `.env` instead (if this doesn't get to-done we can just set the values to false in the main starter's index.js...)
+- Probably another app, but let's talk Hello IndexedDB — that's the cool stuff!
 
 #### Credits
 

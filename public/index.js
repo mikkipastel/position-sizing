@@ -61,9 +61,11 @@ const VAPID_PUBLIC_KEY =
 const buttonNotifications = document.getElementById("button-notifications");
 
 // set up event notification handlers
-buttonNotifications.addEventListener("click", () => {
-  askNotificationPermission();
-});
+if (buttonNotifications) {
+  buttonNotifications.addEventListener("click", () => {
+    askNotificationPermission();
+  });
+}
 
 // execute our notification functions and set up the page elements
 handlePermission();
@@ -79,7 +81,7 @@ window.addEventListener(
 
 function handlePermission() {
   // set the button and subsequent form to shown or hidden, depending on what the user answers
-  if ("Notification" in window) {
+  if ("Notification" in window && buttonNotifications) {
     // Mobile Safari errors out without checking for the Notification obj first
     if (Notification.permission !== "granted") {
       buttonNotifications.style.display = "block";
@@ -163,14 +165,16 @@ const badgeCount = document.getElementById("badge-count");
 const buttonIncrementBadge = document.getElementById("button-set-badge");
 const badgingFeatures = document.getElementById("badging-area");
 // set up badging notification handlers
-if (isInstalledPWA) {
+if (isInstalledPWA && badgingFeatures) {
   badgingFeatures.style.display = "block";
 }
-buttonIncrementBadge.addEventListener("click", (e) => {
-  e.stopPropagation();
-  setBadge(badgeCount.value);
-  console.log(`set badge to ${badgeCount.value}`);
-});
+if (buttonIncrementBadge) {
+  buttonIncrementBadge.addEventListener("click", (e) => {
+    e.stopPropagation();
+    setBadge(badgeCount.value);
+    console.log(`set badge to ${badgeCount.value}`);
+  });
+}
 
 function setBadge(total) {
   if (navigator.setAppBadge) {
