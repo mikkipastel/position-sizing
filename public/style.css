@@ -13,7 +13,7 @@ START Page structure and element resets
 /* A set of default style */
 :root {
   /* Generic sizing for the page */
-  --wrapper-height: 80vh;
+  --wrapper-height: 70vh;
   --avatar-max-width: 140px;
 
   /* Fonts for different elements */
