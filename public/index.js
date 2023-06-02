@@ -34,8 +34,19 @@ Feature: Install reminder
 *************************************************************************/
 // figure out if we should show the install nudges
 const installNudge = document.querySelector("#install-nudge");
-if (!isInstalledPWA && installNudge) {
+const closeButton = document.getElementById("close-button");
+const hideBanner = localStorage.getItem("hide-install-nudge");
+
+function handleCloseButton() {
+  localStorage.setItem("hide-install-nudge", true);
+  installNudge.style.display = "none";
+}
+
+if (!isInstalledPWA && installNudge && !hideBanner) {
   installNudge.style.display = "block";
+    closeButton.addEventListener("click", handleCloseButton);
+} else {
+  installNudge.style.display = "none";
 }
 
 /************************************************************************
@@ -245,25 +256,3 @@ screen.orientation.addEventListener("change", function (e) {
 
 // show/hide orientation classes
 showOrientationBlocks();
-
-/************************************************************************
-
-Feature: Banner
-
-*************************************************************************/
-
-const closeButton = document.getElementById("close-button");
-
-const hideBanner = localStorage.getItem("hide-install-nudge");
-
-function handleCloseButton() {
-  localStorage.setItem("hide-install-nudge", true);
-  installNudge.style.display = "none";
-}
-
-if (hideBanner) {
-  installNudge.style.display = "none";
-} else {
-  installNudge.style.display = "block";
-  closeButton.addEventListener("click", handleCloseButton);
-}
