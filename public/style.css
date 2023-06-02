@@ -13,7 +13,7 @@ START Page structure and element resets
 /* A set of default style */
 :root {
   /* Generic sizing for the page */
-  --wrapper-height: 70vh;
+  --wrapper-height: 75vh;
   --avatar-max-width: 140px;
 
   /* Fonts for different elements */
@@ -177,7 +177,7 @@ You can create your own CSS file in public/styles.css
 textarea,
 input,
 button {
-  margin-top: 8px;
+  margin-top: 0.5rem;
   display: block;
   height: 40px;
   width: 100%;
@@ -215,22 +215,22 @@ h1, p {
 #button-notifications,
 #form-notification,
 #badging-area,
+#install-nudge
 .show-for-portrait,
-.show-for-landscape,
-.install-nudge {
-  margin-bottom: 12px;
+.show-for-landscape {
+  margin-bottom: 1rem;
   display: none;
 }
 
-.install-nudge {
-  padding: 16px 2rem;
+#install-nudge {
+  padding: 1rem 2rem;
   text-align: left;
   background-color: #ffff99;
   margin-bottom: 0;
 }
 
 .install-nudge .content {
-  font-size: 13px; 
+  font-size: 0.8rem; 
 }
 
 /******************************************************************************

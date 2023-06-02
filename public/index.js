@@ -33,17 +33,9 @@ Feature: Install reminder
 
 *************************************************************************/
 // figure out if we should show the install nudges
-const iOSNudge = document.querySelector(".install-nudge.ios");
-const androidNudge = document.querySelector(".install-nudge.android");
-const genericNudge = document.querySelector(".install-nudge.generic");
-if (!isInstalledPWA && iOSNudge && androidNudge && genericNudge) {
-  if (isIOS) {
-    iOSNudge.style.display = "block";
-  } else if (isAndroid) {
-    androidNudge.style.display = "block";
-  } else {
-    genericNudge.style.display = "block";
-  }
+const installNudge = document.querySelector("#install-nudge");
+if (!isInstalledPWA && installNudge) {
+  installNudge.style.display = "block";
 }
 
 /************************************************************************
