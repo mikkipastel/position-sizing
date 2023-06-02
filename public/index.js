@@ -63,15 +63,14 @@ const VAPID_PUBLIC_KEY =
 // grab notification elements
 const buttonNotifications = document.getElementById("button-notifications");
 
-// set up event notification handlers
-if (buttonNotifications) {
+if (buttonNotifications && enablePushNotifications) {
+  // set up event notification handlers
   buttonNotifications.addEventListener("click", () => {
     askNotificationPermission();
   });
+  // execute our notification functions and set up the page elements
+  handlePermission();
 }
-
-// execute our notification functions and set up the page elements
-handlePermission();
 
 // touchstart event clears any active badges
 window.addEventListener(
