@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello Installable</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- OpenGraph/Social sharing -->
+    <meta name="description" content="A simple starting point for your next installable PWA" />
+    <meta name="og:description" content="A simple starting point for your next installable PWA" />
+    <meta property="og:image" content="https://cdn.glitch.com/560ed5ed-9d00-433a-9ff9-7750d79d13da%2FGlitch_TeamAvatar.png?v=1624643105812" />
+    <meta property="og:title" content="Hello Installable" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+
+    <!-- PWA setup - update public/sw.js if you add your own assets like a new .css file -->
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body>
+    <main>
+      <div id="install-nudge">
+        <div class="content">
+          <div>You can install this app — no app store needed!</div>
+          <a href="/install.html" class="install">INSTALL</a>
+          <a class="close">&#215;</a>
+        </div>
+      </div>
+      <div class="wrapper">
+        <div class="content">
+          <h1>Install me:</h1>
+          <p>
+            Installing a PWA is easy, but it might be new to you. That's okay! Here's a look at how
+            you can install this app for most device types.
+          </p>
+          
+          <h2>iOS</h2>
+          <p>
+            Look for the share button in Safari, select "Add to Home Screen," and then just follow 
+            the prompts.
+          </p>
+          
+          <h2>Android</h2>
+          <p>
+            Look for the "More" menu. This is the "three dots" menu in Chrome but could be different 
+            depending on your brpwser. Next, select "Add to Home Screen," and then just follow 
+            the prompts.
+          </p>
+          
+          <h2>Desktop</h2>
+          <p>
+            Look for an install icon in the URL bar of your browser, click, and follow the prompts.
+          </p>
+        </div>
+      </div>
+
+      <!--- FOOTER: You can safely remove the Glitch footer (but tell your friends!) ✂ --->
+      <footer class="footer">
+        <div class="tagline">
+          <b>Hello Installable</b><br />
+          I'm at the web. I'm at the app.<br />
+          I'm at the combination web and app.
+        </div>
+        <a
+          class="btn--remix"
+          target="_top"
+          href="https://glitch.com/edit/#!/remix/glitch-hello-installable"
+        >
+          <img
+            src="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FLogo_Color.svg?v=1618199565140"
+            alt=""
+          />
+          Build your own PWA
+        </a>
+      </footer>
+    </main>
+  </body>
+</html>
