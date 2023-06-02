@@ -223,7 +223,7 @@ h1, p {
 }
 
 #install-nudge {
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   text-align: left;
   background-color: #ffff99;
   margin-bottom: 0;
@@ -238,6 +238,11 @@ h1, p {
 #install-nudge div {
   font-size: 0.8rem; 
   display: inline-block;
+  padding: 0.25rem 0;
+}
+
+#install-nudge * {
+  align-self: center;
 }
 
 #install-nudge a {
@@ -245,7 +250,7 @@ h1, p {
   width: auto;
   font-size: 0.7rem;
   background-color: #FFFFFF;
-  padding: 0.25rem 1.25rem;
+  padding: 0.25rem 1.25rem 0.25rem 2rem;
   font-weight: bold;
   text-decoration: none;
   border-radius: 0.75rem;
@@ -254,6 +259,8 @@ h1, p {
 
 #install-nudge a.close {
   background-color: transparent;
+  padding: 0 0 0.25rem 1rem;
+  font-size: 1.5rem;
 }
 
 /******************************************************************************
