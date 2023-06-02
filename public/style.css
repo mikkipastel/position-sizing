@@ -77,6 +77,7 @@ body {
 }
 .footer .tagline {
   padding: 0.25rem 1rem 1rem;
+  font-size: clamp(1rem, 0.925rem + 0.3333vw, 1.1rem);
   text-align: left;
   white-space: nowrap;
 }
@@ -109,9 +110,6 @@ body {
 .btn--remix:hover,
 .btn--remix:focus {
   background-color: #d0fff1;
-}
-.tagline {
-  font-size: clamp(1rem, 0.925rem + 0.3333vw, 1.1rem);
 }
 
 /* Typography */
@@ -230,6 +228,9 @@ p {
   text-align: left;
   background-color: #ffff99;
   margin-bottom: 0;
+
+  /* Display is controlled in JavaScript */
+  display: none;
 }
 
 #install-nudge .content {
@@ -268,6 +269,7 @@ p {
 }
 
 .close {
+  cursor: pointer;
   background: none;
   border: none;
   -webkit-appearance: none;

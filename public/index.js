@@ -245,3 +245,25 @@ screen.orientation.addEventListener("change", function (e) {
 
 // show/hide orientation classes
 showOrientationBlocks();
+
+/************************************************************************
+
+Feature: Banner
+
+*************************************************************************/
+
+const closeButton = document.getElementById("close-button");
+
+const hideBanner = localStorage.getItem("hide-install-nudge");
+
+function handleCloseButton() {
+  localStorage.setItem("hide-install-nudge", true);
+  installNudge.style.display = "none";
+}
+
+if (hideBanner) {
+  installNudge.style.display = "none";
+} else {
+  installNudge.style.display = "block";
+  closeButton.addEventListener("click", handleCloseButton);
+}
