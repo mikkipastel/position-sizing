@@ -230,12 +230,19 @@ h1, p {
 }
 
 #install-nudge .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#install-nudge div {
   font-size: 0.8rem; 
-  display: block;
+  display: inline-block;
 }
 
 #install-nudge a {
   display: inline-block;
+  width: auto;
   font-size: 0.7rem;
   background-color: #FFFFFF;
   padding: 0.25rem 1.25rem;
