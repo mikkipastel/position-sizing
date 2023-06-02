@@ -152,16 +152,16 @@ ul {
 }
 
 /* Link styles */
-a:not(.btn--remix):link,
-a:not(.btn--remix):visited {
+.wrapper a:not(.btn--remix):link,
+.wrapper a:not(.btn--remix):visited {
   text-decoration: none;
   border-bottom: 6px solid var(--color-primary);
   color: var(--color-text-main);
   transition: background 0.2s linear;
 }
-a:hover,
-a:active,
-a:focus {
+.wrapper a:hover,
+.wrapper a:active,
+.wrapper a:focus {
   background: var(--color-primary);
 }
 /******************************************************************************
@@ -229,8 +229,23 @@ h1, p {
   margin-bottom: 0;
 }
 
-.install-nudge .content {
+#install-nudge .content {
   font-size: 0.8rem; 
+  display: block;
+}
+
+#install-nudge a {
+  display: inline-block;
+  font-size: 0.7rem;
+  background-color: #FFFFFF;
+  padding: 0.25rem 1.25rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 0.75rem;
+}
+
+#install-nudge a.install {
+  
 }
 
 /******************************************************************************
