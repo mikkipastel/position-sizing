@@ -242,10 +242,11 @@ h1, p {
   font-weight: bold;
   text-decoration: none;
   border-radius: 0.75rem;
+  color: #765C00;
 }
 
-#install-nudge a.install {
-  
+#install-nudge a.close {
+  background-color: transparent;
 }
 
 /******************************************************************************
