@@ -1,7 +1,7 @@
 # Hello Installable
 
-This is a basic starter app you can use to build a new, installable PWA. PWA stands for "progressive
-web app" — an app that looks great on the web but that can be installed right to a phone without the need
+This is a basic starter app you can use to build a new, installable PWA. PWA stands for “progressive
+web app” — an app that looks great on the web and can be installed right to a phone without the need
 for an app store. It's mostly like any other web ap, with a few exceptions:
 
 - **manifest.json:** PWAs have manifest files that tell the browser basic details about them so they can
