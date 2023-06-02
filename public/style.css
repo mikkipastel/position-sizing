@@ -212,13 +212,6 @@ h1, p {
   text-align: left;
 }
 
-.install-nudge {
-  padding: 16px;
-  text-align: left;
-  background-color: #ffff99;
-  margin-bottom: 12px;
-}
-
 #button-notifications,
 #form-notification,
 #badging-area,
@@ -227,6 +220,17 @@ h1, p {
 .install-nudge {
   margin-bottom: 12px;
   display: none;
+}
+
+.install-nudge {
+  padding: 16px 2rem;
+  text-align: left;
+  background-color: #ffff99;
+  margin-bottom: 0;
+}
+
+.install-nudge .content {
+  font-size: 13px; 
 }
 
 /******************************************************************************
