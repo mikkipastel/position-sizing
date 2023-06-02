@@ -31,17 +31,33 @@ There's a lot of other little features stuck into this app to get you started wo
 - A tooltip you can display to people telling them how to install the app
 - Push notification support (with badging and badge clearing on interaction)
 
-#### Getting started
+#### Getting started with notifications
 
-...document whatever needs to happen to set up notifications — `.env` or `index.js` depending...
+Once you've set up your push server you just need to make a couple changes in the 
+`index.js` file. Look for this section:
+```
+/**********************************************************
+
+Feature: Notifications
+
+***********************************************************/
+// add notifcation settings here:
+const enablePushNotifications = false; // true to enable
+const pushServerBaseURL = ""; // your full push server URL
+const VAPID_PUBLIC_KEY = ""; // public key from push server
+```
+First, change `enablePushNotifications` to true so your app knows you want to use
+push notifications. Next, add your push server's full URL (including "https://") and 
+the `VAPID_PUBLIC_KEY` value from the server. 
+
+That's it! A subscribe button will show up in your app and your users will be able to
+suscribe to notifications you send!
 
 #### TODO:
 
-- Make the orientation thing cool: portrait == two phones high-fiving, landscape == one wide phone offering a hug / arms outstretched
-- Use localstorage to make the install nudge dismissable
 - Explore the getNotifications stuff to give accurate badge counts
-- Put the public key in a `.env` instead (if this doesn't get to-done we can just set the values to false in the main starter's index.js...)
-- Probably another app, but let's talk Hello IndexedDB — that's the cool stuff!
+- Add install screenshots
+- Reformat the "orientation" info into a "Meta" section that also has install context
 
 #### Credits
 

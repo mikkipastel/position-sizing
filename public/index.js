@@ -44,7 +44,7 @@ function handleCloseButton() {
 
 if (!isInstalledPWA && installNudge && !hideBanner) {
   installNudge.style.display = "block";
-    closeButton.addEventListener("click", handleCloseButton);
+  closeButton.addEventListener("click", handleCloseButton);
 } else {
   installNudge.style.display = "none";
 }
@@ -54,11 +54,10 @@ if (!isInstalledPWA && installNudge && !hideBanner) {
 Feature: Notifications
 
 *************************************************************************/
-// CHANGE THESE
-const enablePushNotifications = true;
-const pushServerBaseURL = "https://glortch-pushie.glitch.me";
-const VAPID_PUBLIC_KEY =
-  "BKF_-c-PRt_hn-yGLXjYnlLJBEE2C3bvNRu5Tf1DQqbn_jCxbSYeoMKRHKLyCto-BUl_MaWrgE9-T08au99A-Xg";
+// add notifcation settings here:
+const enablePushNotifications = false; // true to enable
+const pushServerBaseURL = ""; // your full push server URL
+const VAPID_PUBLIC_KEY = ""; // public key from push server
 
 // grab notification elements
 const buttonNotifications = document.getElementById("button-notifications");
