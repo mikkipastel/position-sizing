@@ -24,13 +24,13 @@ START Page structure and element resets
   /* Colors you'll see cascade through the elements */
 
   /* To set your own use custom-theme.css with `custom-theme` in settings.json `theme` property */
-  --color-bg: #99DAFF; /* Used for the page body background */
+  --color-bg: #99daff; /* Used for the page body background */
   --color-bg-alt: #ffffff; /* Used for social icons on hover */
   --color-text-main: #000000; /* List text ann social icons on hover */
   --color-primary: #ffffff; /* Headers and borders */
-  --color-forms: #FF00BC; /* Form borders and highlights */
+  --color-forms: #ff00bc; /* Form borders and highlights */
   --color-forms-focus: #ff9028; /* Form borders and highlights */
-  --color-buttons: #FFBFEE; /* Button colors */
+  --color-buttons: #ffbfee; /* Button colors */
 }
 
 /* Basic page style resets */
@@ -176,38 +176,42 @@ You can create your own CSS file in public/styles.css
 
 textarea,
 input,
-button {
+.button {
   margin-top: 0.5rem;
   display: block;
   height: 40px;
   width: 100%;
   border: 2px solid var(--color-forms);
 }
+
 input:focus {
   outline: none;
   border: 2px solid var(--color-forms-focus);
 }
-button {
+
+.button {
   background: var(--color-buttons);
   color: #000000;
   text-transform: uppercase;
   font-weight: bold;
 }
-button:focus {
+.button:focus {
   outline: none;
-  color: #FFFFFF;
+  color: #ffffff;
   border: 2px solid var(--color-forms-focus);
 }
-button:hover {
+.button:hover {
   background: var(--color-forms);
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
 }
 textarea {
   height: 125px;
 }
 
-h1, h2, p {
+h1,
+h2,
+p {
   display: block;
   text-align: left;
 }
@@ -215,8 +219,7 @@ h1, h2, p {
 #button-notifications,
 #form-notification,
 #badging-area,
-#install-nudge
-.show-for-portrait,
+#install-nudge .show-for-portrait,
 .show-for-landscape {
   margin-bottom: 1rem;
   display: none;
@@ -236,7 +239,7 @@ h1, h2, p {
 }
 
 #install-nudge div {
-  font-size: 0.8rem; 
+  font-size: 0.8rem;
   display: inline-block;
   padding: 0.25rem 0;
 }
@@ -249,12 +252,13 @@ h1, h2, p {
   display: inline-block;
   width: auto;
   font-size: 0.7rem;
-  background-color: #FFFFFF;
-  padding: 0.25rem 1.25rem 0.25rem 2rem;
+  background-color: #ffffff;
+  padding: 0.25rem 1.25rem 0.25rem 1.25rem;
+  margin-left: 0.75rem;
   font-weight: bold;
   text-decoration: none;
   border-radius: 0.75rem;
-  color: #765C00;
+  color: #765c00;
 }
 
 #install-nudge a.close {
@@ -263,6 +267,8 @@ h1, h2, p {
   font-size: 1.5rem;
 }
 
-/******************************************************************************
-END Glitch in Bio default theme
-******************************************************************************/
+.close {
+  background: none;
+  border: none;
+  -webkit-appearance: none;
+}
