@@ -268,14 +268,17 @@ p {
   margin-top:1rem;
   font-family: Menlo, Consolas, Monaco, "Lucida Console", monospace;
   text-align: left;
+  margin-bottom: 1rem;
 }
 
 #status-area h2 {
   color: #FFFFFF;
   font-family: Menlo, Consolas, Monaco, "Lucida Console", monospace;
   font-size: 0.85rem; 
+  margin-bottom: 0.25rem;
 }
 
 #status-area div {
   font-size: 0.85rem; 
+  margin-bottom: 0.25rem;
 }
