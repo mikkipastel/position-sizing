@@ -288,3 +288,10 @@ p {
   font-size: 0.85rem; 
   margin-bottom: 0.25rem;
 }
+
+img.install {
+  width: 375px;
+  max-width: 100%;
+  display:block;
+  margin: 0.5rem auto 1rem 0;
+}

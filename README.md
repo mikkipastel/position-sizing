@@ -56,9 +56,8 @@ suscribe to notifications you send!
 
 #### TODO:
 
-- Explore the getNotifications stuff to give accurate badge counts
-- Add install screenshots
-- Reformat the “orientation” info into a “Meta” section that also has install context
+- Explore the getNotifications API in service worker to give accurate badge counts (currently hard-coded to "1" for new notifications)
+- Add Android install screenshot
 
 #### Credits
 
