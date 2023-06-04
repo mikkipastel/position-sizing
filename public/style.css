@@ -72,6 +72,7 @@ body {
   font-size: clamp(1rem, 0.925rem + 0.3333vw, 1.1rem);
   text-align: left;
   white-space: nowrap;
+  flex-grow: 8;
 }
 .btn--remix {
   font-family: Menlo, Consolas, Monaco, "Lucida Console", monospace;
@@ -90,9 +91,8 @@ body {
   text-decoration: none;
   color: #000000;
   white-space: nowrap;
-  margin-top: 6px;
-  margin-left: auto;
-  margin-right: 1rem;
+  margin: 6px 1rem 1.5rem 1rem;
+  flex-grow: 1;
 }
 .btn--remix img {
   position: relative;
@@ -213,6 +213,12 @@ p {
 .show-for-landscape {
   margin-bottom: 1rem;
   display: none;
+}
+
+#badging-area p {
+  margin-top: 1rem;
+  font-weight: 100;
+  text-align: left;
 }
 
 #install-nudge {
