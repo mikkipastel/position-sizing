@@ -57,7 +57,7 @@ body {
 .footer {
   display: flex;
   justify-content: space-between;
-  margin: 3rem auto 0;
+  margin: 2rem auto 0;
   padding: 1rem 0 0.75rem 0;
   width: 100%;
   flex-wrap: wrap;
@@ -286,7 +286,7 @@ p {
 
 #status-area div {
   font-size: 0.85rem; 
-  margin-bottom: 0.25rem;
+  margin-bottom: 0;
 }
 
 img.install {

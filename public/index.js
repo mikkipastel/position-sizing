@@ -30,7 +30,7 @@ const isAndroid = /android/i.test(navigator.userAgent);
 // add a helper class for ".show-for-installed" and ".show-for-browser"
 function showInstalledBlocks() {
   if (!isInstalledPWA) {
-    document.querySelectorAll(".show-for-installed").forEach((el) => {
+    document.querySelectorAll(".show-for-browser").forEach((el) => {
       el.style.display = "block";
     });
     document.querySelectorAll(".show-for-installed").forEach((el) => {
@@ -40,7 +40,7 @@ function showInstalledBlocks() {
     document.querySelectorAll(".show-for-browser").forEach((el) => {
       el.style.display = "none";
     });
-    document.querySelectorAll(".show-for-browser").forEach((el) => {
+    document.querySelectorAll(".show-for-installed").forEach((el) => {
       el.style.display = "block";
     });
   }
