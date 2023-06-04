@@ -80,6 +80,9 @@ const enablePushNotifications = false; // true to enable
 const pushServerBaseURL = ""; // your full push server URL
 const VAPID_PUBLIC_KEY = ""; // public key from push server
 
+// track permissions for the sake of badging
+let pushNotificationPermissionGranted = false;
+
 // grab notification elements
 const buttonNotifications = document.getElementById("button-notifications");
 
@@ -107,6 +110,7 @@ function handlePermission() {
     // Mobile Safari errors out without checking for the Notification obj first
     if (Notification.permission !== "granted") {
       buttonNotifications.style.display = "block";
+      pushNotificationPermissionGranted = true;
     } else {
       // this looks extra but it clears the button after accepting permission on iOS
       buttonNotifications.style.display = "none";
@@ -181,13 +185,15 @@ function urlB64ToUint8Array(base64String) {
 
 Feature: Badging
 
+NOTE: badges require permission for Notifications to have been granted
+
 *************************************************************************/
 // grab badging elements and set initial badge value
 const badgeCount = document.getElementById("badge-count");
 const buttonIncrementBadge = document.getElementById("button-set-badge");
 const badgingFeatures = document.getElementById("badging-area");
 // set up badging notification handlers
-if (isInstalledPWA && badgingFeatures) {
+if (isInstalledPWA && badgingFeatures && pushNotificationPermissionGranted) {
   badgingFeatures.style.display = "block";
 }
 if (buttonIncrementBadge) {
