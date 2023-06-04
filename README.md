@@ -24,11 +24,12 @@ you can even pair this app with a little push notification server we built calle
 There’s a lot of other little features stuck into this app to get you started working with PWAs like:
 
 - Events for orientation changes
-- Helper classes: `.show-for-portrait` and `.show-for-landscape`
+- Helper classes: `.show-for-portrait` / `.show-for-landscape`
 - A JS fix for a wacky iOS zooming bug on orientation change
 - An example form setting and clearing app icon badges
 - A global `isInstalledPWA` boolean so you know when your app is installed
 - A tooltip you can display to people telling them how to install the app
+- Helper classes: `.show-for-installed` / `.show-for-browser`
 - Push notification support (with badging and badge clearing on interaction)
 
 #### Getting started with notifications
