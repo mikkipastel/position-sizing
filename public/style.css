@@ -263,3 +263,19 @@ p {
   border: none;
   -webkit-appearance: none;
 }
+
+#status-area {
+  margin-top:1rem;
+  font-family: Menlo, Consolas, Monaco, "Lucida Console", monospace;
+  text-align: left;
+}
+
+#status-area h2 {
+  color: #FFFFFF;
+  font-family: Menlo, Consolas, Monaco, "Lucida Console", monospace;
+  font-size: 0.85rem; 
+}
+
+#status-area div {
+  font-size: 0.85rem; 
+}
