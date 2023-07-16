@@ -1,7 +1,7 @@
 {
-  "name": "Hello PWA",
+  "name": "Position Sizing Calculator",
   "short_name": "Hello PWA",
-  "description": "A webapp folks can install on their phones",
+  "description": "Calculator for trade cryptocurrency future from ",
   "display": "standalone",
   "icons": [
     {
