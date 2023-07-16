@@ -1,10 +1,13 @@
 /* HTML */
-getElementValue("inputCoinMame");
+console.log("test");
+
+function setField(id, value) {
+  document.getElementById(id).value = value;
+}
 
 function getElementValue(id) {
   var element = document.getElementById(id);
-  var idValue = element.value;
-  console.log(idValue);
+  return element.value;
 }
 
 /* Formular */
