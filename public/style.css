@@ -16,7 +16,7 @@ START Page structure and element resets
   /* Colors you'll see cascade through the elements */
 
   /* To set your own use custom-theme.css with `custom-theme` in settings.json `theme` property */
-  --color-bg: #99daff; /* Used for the page body background */
+  --color-bg: #D9BD6A; /* Used for the page body background */
   --color-bg-alt: #ffffff; /* Used for social icons on hover */
   --color-text-main: #000000; /* List text ann social icons on hover */
   --color-primary: #ffffff; /* Headers and borders */
@@ -51,6 +51,16 @@ body {
   flex-direction: column;
   max-width: 550px;
   margin: 0 auto;
+}
+
+/* add for show input row*/
+.content .item {
+  display: flex;
+  flex-direction: row;
+}
+.inputTextField {
+  size: 30;
+  width: 100px;
 }
 
 /* The footer and our remix on glitch button */
