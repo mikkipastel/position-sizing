@@ -1,5 +1,4 @@
 /* HTML */
-console.log("test");
 
 function setField(id, value) {
   document.getElementById(id).value = value;

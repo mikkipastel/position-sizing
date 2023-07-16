@@ -14,19 +14,19 @@
       "sizes": "192x192",
       "type": "image/png",
       "src": "https://cdn.glitch.global/d1fcae68-a5e4-40eb-aac9-5bfad9facbfe/icon-192-maskable.png?v=1689501322372",
-      "purpose": "maskable"
+      "purpose": "any"
     },
     {
       "sizes": "180x180",
       "type": "image/png",
       "src": "https://cdn.glitch.global/d1fcae68-a5e4-40eb-aac9-5bfad9facbfe/icon-180-maskable.png?v=1689501870404",
-      "purpose": "maskable"
+      "purpose": "any"
     },
     {
       "sizes": "128x128",
       "type": "image/png",
       "src": "https://cdn.glitch.global/d1fcae68-a5e4-40eb-aac9-5bfad9facbfe/icon-192-maskable.png?v=1689501322372",
-      "purpose": "maskable"
+      "purpose": "any"
     }
   ],
   "background_color": "#D9BD6A",
