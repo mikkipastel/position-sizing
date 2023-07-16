@@ -1,7 +1,7 @@
 {
   "name": "Position Sizing Calculator",
-  "short_name": "Hello PWA",
-  "description": "Calculator for trade cryptocurrency future from ",
+  "short_name": "Posize",
+  "description": "Calculator for trade cryptocurrency future from Crypto Teller",
   "display": "standalone",
   "icons": [
     {
