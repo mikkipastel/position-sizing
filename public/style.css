@@ -54,6 +54,9 @@ body {
 }
 
 /* add for show input row*/
+#textHeader {
+  color: #862B0D;
+}
 #imgLogo {
   width: 100px;
   aspect-ratio: auto
@@ -65,6 +68,9 @@ body {
   flex-direction: row;
   align-items: baseline;
   justify-content: space-between;
+}
+.content .textLabel {
+  color: #000000;
 }
 .inputTextField {
   width: 200px;
