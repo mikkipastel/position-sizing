@@ -43,26 +43,28 @@
           
           <hr class="divider">
           
+          <!-- Input & Calculate Loss per order -->
+          
           <div class="item">
             <p class="textLabel">Start Fund: </p>
-          <input type="number" id="inputStartFund" class="inputTextField" placeholder="Enter start fund" value="">
+          <input type="number" id="inputStartFund" class="inputTextField" placeholder="Enter start fund" value="" onchange="calculateLossPerOrder();">
           </div>
           
           
           <div class="item">
             <p class="textLabel">Risk % per order: </p>
-          <input type="number" id="inputRiskPerOrder" class="inputTextField" placeholder="Enter risk % per order" value="">
+          <input type="number" id="inputRiskPerOrder" class="inputTextField" placeholder="Enter risk % per order" value="" onchange="calculateLossPerOrder();">
           </div>
           
           
           <div class="item">
             <p class="textLabel">Loss per order: </p>
-          <input type="number" id="inputLossPerOrder" class="inputTextField"  placeholder="Enter loss per order" value="">
+          <input type="number" id="resultLossPerOrder" class="resultTextField" disabled>
           </div>
           
           <hr class="divider">
           
-          <!-- Input for calcualte -->
+          <!-- Input for calculate All -->
           
           <div class="item">
             <p class="textLabel">Max Loss: </p>
@@ -86,7 +88,7 @@
           
           <hr class="divider">
           
-          <!-- Result -->
+          <!-- Result All -->
           
           <div class="item">
             <p class="textLabel">Take profit (3x): </p>

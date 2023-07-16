@@ -1,7 +1,11 @@
 /* HTML */
 
 function calculateLossPerOrder() {
+  var startFund = getElementValue("inputStartFund");
+  var riskPercentPerOrder = getElementValue("inputRiskPerOrder");
   
+  var losrPerOrder = getLossPerOrder(startFund, riskPercentPerOrder);
+  setField("resultLossPerOrder", losrPerOrder);
 }
 
 function calculateAll() {
@@ -31,6 +35,10 @@ function getElementValue(id) {
 }
 
 /* Formular */
+
+function getLossPerOrder(startFund, riskPercentPerOrder) {
+  return (startFund / 100) * riskPercentPerOrder;
+}
 
 function getTakeProfit(entryPrice, stopLossPrice, multiple) {
   return entryPrice + (multiple * (entryPrice - stopLossPrice));
