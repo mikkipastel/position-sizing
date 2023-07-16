@@ -71,12 +71,15 @@ body {
 }
 .content .textLabel {
   color: #000000;
+  font-weight: 400;
 }
 .inputTextField {
   width: 200px;
   margin-top: 0rem;
   display: block;
   border-radius: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 .divider {
   width: 100%;
@@ -86,10 +89,14 @@ body {
 .resultTextField {
   width: 200px;
   margin-top: 0rem;
-  background-color: #F4F2DE;
-  border: 2px solid #A8A196;
+  border: 2px solid #321E1E;
   border-radius: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  /* new */
+  background-color: #F4F2DE;
   cursor: not-allowed;
+  color: #000000;
 }
 
 /* The footer and our remix on glitch button */
