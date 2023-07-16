@@ -45,6 +45,7 @@ function getLossPerOrder(startFund, riskPercentPerOrder) {
 function getTakeProfit(entryPrice, stopLossPrice, multiple) {
   return entryPrice + (multiple * (entryPrice - stopLossPrice));
 }
+//=IFERROR((E15+(3*(E15-E16))),"-")
 
 function getAmountBuy(maxLoss, entryPrice, stopLossPrice) {
   return maxLoss / Math.abs(entryPrice - stopLossPrice);
