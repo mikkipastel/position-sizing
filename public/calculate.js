@@ -1,5 +1,22 @@
 /* HTML */
 
+function calculate() {
+  var maxLoss = getElementValue("inputMaxLoss");
+  var leverage = getElementValue("inputLeverage");
+  var entryPrice = getElementValue("inputEntryPrice");
+  var stopLossPrice = getElementValue("inputStopLossPrice");
+  
+  var getTakeProfit3x = getTakeProfit(entryPrice, stopLossPrice, 3);
+  var getTakeProfit5x = getTakeProfit(entryPrice, stopLossPrice, 5);
+  var amountBuy = getAmountBuy(maxLoss, entryPrice, stopLossPrice);
+  var usdUses = getUsdUses(amountBuy, entryPrice, leverage);
+  
+  setField("resultTaskeProfit3x", getTakeProfit3x);
+  setField("resultTaskeProfit5x", getTakeProfit5x);
+  setField("resultAmountBuy", amountBuy);
+  setField("resultUsdUses", usdUses);
+}
+
 function setField(id, value) {
   document.getElementById(id).value = value;
 }
@@ -19,7 +36,6 @@ function getAmountBuy(maxLoss, entryPrice, stopLossPrice) {
   return maxLoss / Math.abs(entryPrice - stopLossPrice);
 }
 
-function getUsdUses(maxLoss, entryPrice, stopLossPrice, leverage) {
-  var amountBuy = getAmountBuy(maxLoss, entryPrice, stopLossPrice);
-  return amountBuy * entryPrice / leverage
+function getUsdUses(amountBuy, entryPrice, leverage) {
+  return amountBuy * entryPrice / leverage;
 }
