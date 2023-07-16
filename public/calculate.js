@@ -1,4 +1,4 @@
-/* HTML */
+/* Auto Calculate */
 
 function calculateLossPerOrder() {
   var startFund = getElementValue("inputStartFund");
@@ -24,6 +24,8 @@ function calculateAll() {
   setField("resultAmountBuy", amountBuy);
   setField("resultUsdUses", usdUses);
 }
+
+/* HTML */
 
 function setField(id, value) {
   document.getElementById(id).value = value;
