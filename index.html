@@ -57,32 +57,36 @@
           
           <div class="item">
             <p class="textLabel">Loss per order: </p>
-          <input type="number" id="inputLossPerOrder" class="inputTextField"  placeholder="Enter coin name" value="">
+          <input type="number" id="inputLossPerOrder" class="inputTextField"  placeholder="Enter loss per order" value="">
           </div>
           
           <hr class="divider">
           
+          <!-- Input for calcualte -->
+          
           <div class="item">
             <p class="textLabel">Max Loss: </p>
-            <input type="number" id="inputMaxLoss" class="inputTextField" placeholder="Enter max loss" value="">
+            <input type="number" id="inputMaxLoss" class="inputTextField" placeholder="Enter max loss" value="" onchange="calculateAll();">
           </div>
           
           <div class="item">
             <p class="textLabel">Leverage: </p>
-            <input type="number" id="inputLeverage" class="inputTextField" placeholder="Enter leverage" value="">
+            <input type="number" id="inputLeverage" class="inputTextField" placeholder="Enter leverage" value="" onchange="calculateAll();">
           </div>
           
           <div class="item">
             <p class="textLabel">Entry price: </p>
-            <input type="number" id="inputEntryPrice" class="inputTextField" placeholder="Enter entry price" value="">
+            <input type="number" id="inputEntryPrice" class="inputTextField" placeholder="Enter entry price" value="" onchange="calculateAll();">
           </div>
           
           <div class="item">
             <p class="textLabel">Stop loss price: </p>
-            <input type="number" id="inputStopLossPrice" class="inputTextField" placeholder="Enter stop loss price" value="">
+            <input type="number" id="inputStopLossPrice" class="inputTextField" placeholder="Enter stop loss price" value="" onchange="calculateAll();">
           </div>
           
           <hr class="divider">
+          
+          <!-- Result -->
           
           <div class="item">
             <p class="textLabel">Take profit (3x): </p>

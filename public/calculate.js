@@ -1,6 +1,10 @@
 /* HTML */
 
-function calculate() {
+function calculateLossPerOrder() {
+  
+}
+
+function calculateAll() {
   var maxLoss = getElementValue("inputMaxLoss");
   var leverage = getElementValue("inputLeverage");
   var entryPrice = getElementValue("inputEntryPrice");
