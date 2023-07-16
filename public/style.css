@@ -54,6 +54,10 @@ body {
 }
 
 /* add for show input row*/
+#imgLogo {
+  width: 100px;
+  aspect-ratio: auto
+}
 .content .item {
   display: flex;
   margin-top: 0.5rem;
@@ -61,9 +65,6 @@ body {
   flex-direction: row;
   align-items: baseline;
   justify-content: space-between;
-}
-.content .item .p {
-  width: 50%
 }
 .inputTextField {
   width: 200px;
