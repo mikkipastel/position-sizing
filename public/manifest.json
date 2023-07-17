@@ -2,7 +2,7 @@
   "name": "Position Sizing Calculator",
   "short_name": "Posize",
   "description": "Calculator for trade cryptocurrency future, formular from Crypto Teller",
-  "display": "standalone",
+  "display": "fullscreen",
   "icons": [
     {
       "sizes": "512x512",
