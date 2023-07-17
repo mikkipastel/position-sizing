@@ -19,8 +19,8 @@ function calculateAll() {
   var amountBuy = getAmountBuy(maxLoss, entryPrice, stopLossPrice);
   var usdUses = getUsdUses(amountBuy, entryPrice, leverage);
   
-  setField("resultTaskeProfit3x", getTakeProfit3x);
-  setField("resultTaskeProfit5x", getTakeProfit5x);
+  setField("resultTakeProfit3x", getTakeProfit3x);
+  setField("resultTakeProfit5x", getTakeProfit5x);
   setField("resultAmountBuy", amountBuy);
   setField("resultUsdUses", usdUses);
 }
@@ -43,7 +43,8 @@ function getLossPerOrder(startFund, riskPercentPerOrder) {
 }
 
 function getTakeProfit(entryPrice, stopLossPrice, multiple) {
-  return entryPrice + multiple * (entryPrice - stopLossPrice);
+  console.log(entryPrice + (multiple * (entryPrice - stopLossPrice)));
+  return entryPrice + (multiple * (entryPrice - stopLossPrice));
 }
 
 function getAmountBuy(maxLoss, entryPrice, stopLossPrice) {
