@@ -43,8 +43,8 @@ function getLossPerOrder(startFund, riskPercentPerOrder) {
 }
 
 function getTakeProfit(entryPrice, stopLossPrice, multiple) {
-  console.log(entryPrice + (multiple * (entryPrice - stopLossPrice)));
-  return entryPrice + (multiple * (entryPrice - stopLossPrice));
+  console.log(entryPrice + multiple * (entryPrice - stopLossPrice));
+  return entryPrice + multiple * (entryPrice - stopLossPrice);
 }
 
 function getAmountBuy(maxLoss, entryPrice, stopLossPrice) {
