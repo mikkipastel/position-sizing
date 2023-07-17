@@ -43,12 +43,9 @@ function getLossPerOrder(startFund, riskPercentPerOrder) {
 }
 
 function getTakeProfit(entryPrice, stopLossPrice, multiple) {
-  //(8.72 + (3 * (8.72 - 8.52))).toFixed(2)
-  console.log(multiple);
-  console.log((entryPrice - stopLossPrice).toFixed(2));
-  console.log(multiple * ((entryPrice - stopLossPrice).toFixed(2)));
-  console.log(entryPrice + multiple * (entryPrice - stopLossPrice));
-  return entryPrice + multiple * (entryPrice - stopLossPrice);
+  var diffEntryStopLoss = (entryPrice - stopLossPrice).toFixed(2);
+  var multipleWithDiff = (multiple * diffEntryStopLoss).toFixed(2);
+  return Number(entryPrice) + Number(multipleWithDiff);
 }
 
 function getAmountBuy(maxLoss, entryPrice, stopLossPrice) {
