@@ -49,9 +49,9 @@ function getTakeProfit(entryPrice, stopLossPrice, multiple) {
 }
 
 function getAmountBuy(maxLoss, entryPrice, stopLossPrice) {
-  return maxLoss / Math.abs(entryPrice - stopLossPrice);
+  return (maxLoss / Math.abs(entryPrice - stopLossPrice)).toPrecision(4);
 }
 
 function getUsdUses(amountBuy, entryPrice, leverage) {
-  return amountBuy * entryPrice / leverage;
+  return (amountBuy * entryPrice / leverage).toPrecision(4);
 }
