@@ -254,11 +254,11 @@ p {
 #button-notifications,
 #form-notification,
 #badging-area,
-#install-nudge .show-for-portrait,
+/* #install-nudge .show-for-portrait,
 .show-for-landscape {
   margin-bottom: 1rem;
   display: none;
-}
+} */
 
 #badging-area p {
   margin-top: 1rem;
