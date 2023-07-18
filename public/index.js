@@ -50,28 +50,6 @@ showInstalledBlocks();
 
 /************************************************************************
 
-Feature: Install reminder
-
-*************************************************************************/
-// figure out if we should show the install nudges
-const installNudge = document.querySelector("#install-nudge");
-const closeButton = document.getElementById("close-button");
-const hideBanner = localStorage.getItem("hide-install-nudge");
-
-function handleCloseButton() {
-  localStorage.setItem("hide-install-nudge", true);
-  installNudge.style.display = "none";
-}
-
-if (!isInstalledPWA && installNudge && !hideBanner) {
-  installNudge.style.display = "block";
-  closeButton.addEventListener("click", handleCloseButton);
-} else {
-  installNudge.style.display = "none";
-}
-
-/************************************************************************
-
 Feature: Notifications
 
 *************************************************************************/
@@ -94,15 +72,6 @@ if (buttonNotifications && enablePushNotifications) {
   // execute our notification functions and set up the page elements
   handlePermission();
 }
-
-// touchstart event clears any active badges
-window.addEventListener(
-  "touchstart",
-  (e) => {
-    clearBadge();
-  },
-  false
-);
 
 function handlePermission() {
   // set the button and subsequent form to shown or hidden, depending on what the user answers
@@ -179,49 +148,6 @@ function urlB64ToUint8Array(base64String) {
     outputArray[i] = rawData.charCodeAt(i);
   }
   return outputArray;
-}
-
-/************************************************************************
-
-Feature: Badging
-
-NOTE: badges require permission for Notifications to have been granted
-
-*************************************************************************/
-// grab badging elements and set initial badge value
-const badgeCount = document.getElementById("badge-count");
-const buttonIncrementBadge = document.getElementById("button-set-badge");
-const badgingFeatures = document.getElementById("badging-area");
-// set up badging notification handlers
-if (isInstalledPWA && badgingFeatures && pushNotificationPermissionGranted) {
-  badgingFeatures.style.display = "block";
-}
-if (buttonIncrementBadge) {
-  buttonIncrementBadge.addEventListener("click", (e) => {
-    e.stopPropagation();
-    setBadge(badgeCount.value);
-    console.log(`set badge to ${badgeCount.value}`);
-  });
-}
-
-function setBadge(total) {
-  if (navigator.setAppBadge) {
-    navigator.setAppBadge(total);
-  } else if (navigator.setExperimentalAppBadge) {
-    navigator.setExperimentalAppBadge(total);
-  } else if (window.ExperimentalBadge) {
-    window.ExperimentalBadge.set(total);
-  }
-}
-
-function clearBadge() {
-  if (navigator.clearAppBadge) {
-    navigator.clearAppBadge();
-  } else if (navigator.clearExperimentalAppBadge) {
-    navigator.clearExperimentalAppBadge();
-  } else if (window.ExperimentalBadge) {
-    window.ExperimentalBadge.clear();
-  }
 }
 
 /************************************************************************

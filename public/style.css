@@ -266,55 +266,6 @@ p {
   text-align: left;
 }
 
-#install-nudge {
-  padding: 0.5rem 2rem;
-  text-align: left;
-  background-color: #ffff99;
-  margin-bottom: 0;
-
-  /* Display is controlled in JavaScript */
-  display: none;
-}
-
-#install-nudge .content {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-#install-nudge div {
-  font-size: 0.8rem;
-  display: inline-block;
-  padding: 0.25rem 0;
-}
-
-#install-nudge * {
-  align-self: center;
-}
-
-#install-nudge a {
-  display: inline-block;
-  width: auto;
-  font-size: 0.7rem;
-  background-color: #ffffff;
-  padding: 0.25rem 1.25rem 0.25rem 1.25rem;
-  margin-left: 0.75rem;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 0.75rem;
-  color: #765c00;
-}
-
-#install-nudge a.close {
-  background-color: transparent;
-  padding: 0 0 0.25rem 0;
-  font-size: 1.5rem;
-  cursor: pointer;
-  background: none;
-  border: none;
-  -webkit-appearance: none;
-}
-
 #status-area {
   margin-top:1rem;
   font-family: Menlo, Consolas, Monaco, "Lucida Console", monospace;
