@@ -53,7 +53,7 @@ body {
   margin: 0 auto;
 }
 
-/* add for show input row*/
+/* header text */
 #textHeader {
   color: #862B0D;
 }
@@ -61,6 +61,7 @@ body {
   width: 180px;
   height: 180px;
 }
+/* show input row */
 .content .item {
   display: flex;
   margin-top: 0.5rem;
