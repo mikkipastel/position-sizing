@@ -118,10 +118,6 @@ body {
   top: 150%;
   left: 50%;
   margin-left: -60px;
-  
-  line-height: 1.5 !important;
-  font-size: clamp(1rem, 0.25rem + 2.5vw, 1.5rem);
-  font-weight: 200;
 }
 
 .tooltip .tooltiptext::after {
