@@ -107,15 +107,14 @@ body {
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 150px;
   background-color: #192733;
   color: #FFFFFF;
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
   position: absolute;
-  z-index: 1;
-  left: 50%;
+  z-index: 2;
   margin-left: -60px;
   padding: 8px;
 }
