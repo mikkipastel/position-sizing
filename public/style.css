@@ -130,16 +130,6 @@ body {
   border-color: transparent transparent black transparent;
 }
 
-/* #top {
-  top: -40px;
-  left: -50%;
-}
-
-#top::before {
-  top: 80%;
-  left: 45%;
-} */
-
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
