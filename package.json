@@ -1,0 +1,43 @@
+{
+  "name": "hello-installable",
+  "version": "1.0.0",
+  "description": "A simple starting point for your next installable PWA",
+  "main": "index.html",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "release": "auto shipit"
+  },
+  "devDependencies": {
+    "@auto-it/all-contributors": "^10.32.2",
+    "@auto-it/first-time-contributor": "^10.32.2",
+    "@auto-it/git-tag": "^10.32.3",
+    "@auto-it/released": "^10.32.2",
+    "auto": "^10.32.2",
+    "vite": "^4.0.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead"
+  ],
+  "engines": {
+    "node": "14.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/glitch-hello-installable"
+  },
+  "glitch": {
+    "projectType": "generated_static"
+  },
+  "author": "MikkiPastel <home@mikkipastel.com>",
+  "auto": {
+    "plugins": [
+      "all-contributors",
+      "first-time-contributor",
+      "released",
+      "git-tag"
+    ],
+    "onlyPublishWithReleaseLabel": true
+  }
+}

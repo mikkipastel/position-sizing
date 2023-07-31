@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Position Sizing Calculator</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- OpenGraph/Social sharing -->
+    <meta name="description" content="Calculator for trade cryptocurrency future, formular from Crypto Teller" />
+    <meta name="og:description" content="Calculator for trade cryptocurrency future, formular from Crypto Teller" />
+    <meta property="og:image" content="https://cdn.glitch.global/d1fcae68-a5e4-40eb-aac9-5bfad9facbfe/icon-512-maskable.png?v=1689501092180" />
+    <meta property="og:title" content="Position Sizing Calculator" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="https://cdn.glitch.global/d1fcae68-a5e4-40eb-aac9-5bfad9facbfe/icon-180-maskable.png?v=1689501870404" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+
+    <!-- PWA setup - update public/sw.js if you add your own assets like a new .css file -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <script src="index.js" async defer></script>
+    <script src="calculate.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="wrapper">
+        <div class="content">
+          <img id="imgLogo" alt="logo" src="https://cdn.glitch.global/d1fcae68-a5e4-40eb-aac9-5bfad9facbfe/icon-128-maskable.png?v=1689501325168">
+          <h1 id="textHeader">Position Sizing Calculator</h1>
+          
+          <div class="item">
+            <p class="textLabel">Coin: </p>
+            <input type="text" id="inputCoinMame" class="inputTextField" placeholder="Enter coin name" value="">
+          </div>
+          
+          
+          <hr class="divider">
+          
+          <!-- Input & Calculate Loss per order -->
+          
+          <div class="item">
+            <p class="textLabel">Start Fund: </p>
+            <input type="number" inputmode="numeric" id="inputStartFund" class="inputTextField" placeholder="Enter start fund" value="" onchange="calculateLossPerOrder();">
+          </div>
+          
+          
+          <div class="item">
+            <p class="textLabel">Risk % per order: </p>
+            <input type="number" inputmode="numeric" id="inputRiskPerOrder" class="inputTextField" placeholder="Enter risk % per order" value="" onchange="calculateLossPerOrder();">
+          </div>
+          
+          
+          <div class="item">
+            <p class="textLabel">Loss per order: </p>
+            <input id="resultLossPerOrder" class="resultTextField" disabled>
+          </div>
+          
+          <hr class="divider">
+          
+          <!-- Input for calculate All -->
+          
+          <div class="item">
+            <div class="tooltip">
+              <p class="textLabel">Max Loss:</p>
+              <span class="tooltiptext">จำนวนเงินที่เสียได้ต่อ 1 order</span>
+            </div>
+            <input type="number" inputmode="numeric" step="0.01" id="inputMaxLoss" class="inputTextField" placeholder="Enter max loss" value="" onchange="calculateAll();">
+          </div>
+          
+          <div class="item">
+            <div class="tooltip">
+              <p class="textLabel">Leverage:</p>
+              <span class="tooltiptext">( Spot=1 )</span>
+            </div>
+            <input type="number" inputmode="numeric" step="0.01" id="inputLeverage" class="inputTextField" placeholder="Enter leverage" value="" onchange="calculateAll();">
+          </div>
+          
+          <div class="item">
+            <div class="tooltip">
+              <p class="textLabel">Entry price:</p>
+              <span class="tooltiptext">ราคาเข้าซื้อ</span>
+            </div>
+            <input type="number" inputmode="numeric" step="0.01" id="inputEntryPrice" class="inputTextField" placeholder="Enter entry price" value="" onchange="calculateAll();">
+          </div>
+          
+          <div class="item">
+            <div class="tooltip">
+              <p class="textLabel">Stop loss price:</p>
+              <span class="tooltiptext">ราคาที่ยอมแพ้</span>
+            </div>
+            <input type="number" inputmode="numeric" step="0.01" id="inputStopLossPrice" class="inputTextField" placeholder="Enter stop loss price" value="" onchange="calculateAll();">
+          </div>
+          
+          <hr class="divider">
+          
+          <!-- Result All -->
+          
+          <div class="item">
+            <p class="textLabel">Take profit (3x): </p>
+            <input id="resultTakeProfit3x" class="resultTextField" disabled>
+          </div>
+          
+          <div class="item">
+            <p class="textLabel">Take profit (5x): </p>
+            <input id="resultTakeProfit5x" class="resultTextField" disabled>
+          </div>
+          
+          <div class="item">
+            <p class="textLabel">Amount Buy: </p>
+            <input id="resultAmountBuy" class="resultTextField" disabled>
+          </div>
+          
+          <div class="item">
+            <p class="textLabel">USD uses: </p>
+            <input id="resultUsdUses" class="resultTextField" disabled>
+          </div>
+          
+          
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="tagline">
+          Formular from <a href="https://www.facebook.com/cryptoteller007/">Crypto Teller</a>
+          | <a href="https://docs.google.com/spreadsheets/d/1eUuFPSLvmFLdwrno9wp81MmslqiUw96P/edit#gid=117080312">Excel File</a>
+          | <a href="https://www.mikkipastel.com/bittoon-dao-learning-cryptoteller-tips-from-futures-trader-take/">About This</a><br />
+          © 2023 <a href="https://www.mikkipastel.com/">MikkiPastel</a>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
